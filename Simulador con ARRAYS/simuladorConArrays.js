@@ -42,8 +42,6 @@ const precioClases = [0,5000,9000,15000];
 
 //Como aclaración, la posición 1 del array "clase" se corresponde con la posición 1 del array "precioClases" y así sucesivamente.
 
-const viaje = [];
-
 //VARIABLES
 
 let lugar;
@@ -55,8 +53,8 @@ let precioEscala;
 
 lugar = asignarLugar();
 
-//while (lugar != 1 && lugar != 2 && lugar != 3 && lugar != 4){
-while (lugar < 0 && lugar > 3){
+//while (lugar != 0 && lugar != 1 && lugar != 2 && lugar != 3){
+while (lugar < 0 || lugar > 3){
     alert('Usted no ha ingresado un numero válido.');
     lugar = asignarLugar();
 }
@@ -80,7 +78,7 @@ while (lugar < 0 && lugar > 3){
 
 clase = asignarClase();
 
-while (clase < 0 && clase > 3){
+while (clase < 0 || clase > 3){
     alert('Usted no ha ingresado un número válido.');
     clase = asignarClase();
 }
