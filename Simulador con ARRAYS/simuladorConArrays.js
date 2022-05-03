@@ -3,17 +3,17 @@
 //FUNCIONES
 
 function asignarLugar (){
-    let aux = (prompt('Elija el lugar donde desea viajar: Venecia, Madrid, Londres, Miami')).toLowerCase();
+    let aux = parseInt(prompt('Ingrese el numero correspondiente al lugar donde desea viajar: 0- ' + destinos[0] + ', 1- ' + destinos[1] + ', 2- ' + destinos[2] + ', 3- ' + destinos[3]));
     return (aux);
 }
 
 function asignarClase (){
-    let aux = (prompt('Elija el tipo de asiento en el que desea viajar: turista, premium, ejecutiva, primera clase')).toLowerCase();
+    let aux = parseInt(prompt('Ingrese el numero correspondiente a la clase en la que desea viajar: 0- ' + clases[0] + ', 1- ' + clases[1] + ', 2- ' + clases[2] + ', 3- ' + clases[3]));
     return (aux);
 }
 
 function conEscala (precioEscala){
-    let escala = (prompt('Seleccione si desea que sea con escala o sin escala. Elija: Si o No')).toLowerCase();
+    let escala = (prompt('Seleccione si desea que el viaje sea con escala o sin escala. Elija: Si o No')).toLowerCase();
     if (escala == 'si') {
         aux = 0;
         return (aux);
@@ -23,28 +23,47 @@ function conEscala (precioEscala){
     }
 }
 
-function valorFinal (lugar, precioLugar, clase, precioClase, precioEscala) {
-    let precioTotal = precioLugar + precioClase + precioEscala;
-    return ('Su viaje a ' + lugar + 'tiene un valor de: $' + precioTotal + ". El valor total se compone de: Valor básico a " + lugar + ": $" + precioLugar + " - La clase " + clase + " tiene un valor agregado de: $" + precioClase + " - Por la escala elegida tiene un valor agregado de: $" + precioEscala + ". Gracias por viajar con nosotros.")
+function valorFinal (destino, precioDestino, clase, precioClase, precioEscala) {
+    let precioTotal = precioDestino + precioClase + precioEscala;
+    return ('Su viaje a ' + destino + ' tiene un valor de: $' + precioTotal + ". El valor total se compone de: Valor básico a " + destino + ": $" + precioDestino + " - La clase " + clase + " tiene un valor agregado de: $" + precioClase + " - Por la escala elegida tiene un valor agregado de: $" + precioEscala + ". Gracias por viajar con nosotros.");
 }
 
+// ARREGLOS
+
+const destinos = ['Venecia','Madrid','Londres','Miami'];
+
+const precioDestinos = [90000,110000,95000,70000];
+
+//Como aclaración, la posición 1 del array "destinos" se corresponde con la posición 1 del array "precioDestinos" y así sucesivamente.
+
+const clases = ['Turista','Premium','Ejecutiva','Primera clase'];
+
+const precioClases = [0,5000,9000,15000];
+
+//Como aclaración, la posición 1 del array "clase" se corresponde con la posición 1 del array "precioClases" y así sucesivamente.
+
+const viaje = [];
 
 //VARIABLES
 
-let lugar, precioLugar, clase, precioClase, escala, precioEscala;
+let lugar;
+let clase;
+let escala;
+let precioEscala;
 
 //PROGRAMA PRINCIPAL
 
 lugar = asignarLugar();
 
-while (lugar != 'venecia' && lugar != 'madrid' && lugar != 'londres' && lugar != 'miami'){
-    alert('Usted no ha ingresado un destino válido.');
+//while (lugar != 1 && lugar != 2 && lugar != 3 && lugar != 4){
+while (lugar < 0 && lugar > 3){
+    alert('Usted no ha ingresado un numero válido.');
     lugar = asignarLugar();
 }
 
 // alert('El lugar elegido es: ' + lugar);
 
-switch (lugar) {
+/*switch (lugar) {
     case 'venecia':
         precioLugar = 90000;
         break;
@@ -57,16 +76,16 @@ switch (lugar) {
     default:
         precioLugar = 70000;
         break;
-}
+}*/
 
 clase = asignarClase();
 
-while (clase != 'turista' && clase != 'premium' && clase != 'ejecutiva' && clase != 'primera clase'){
-    alert('Usted no ha ingresado una clase válida.');
+while (clase < 0 && clase > 3){
+    alert('Usted no ha ingresado un número válido.');
     clase = asignarClase();
 }
 
-switch (clase) {
+/*switch (clase) {
     case 'turista':
         precioClase = 0;
         break;
@@ -79,11 +98,11 @@ switch (clase) {
     default:
         precioClase = 15000;
         break;
-}
+}*/
 
 precioEscala = conEscala();
 
-alert(valorFinal(lugar, precioLugar, clase, precioClase, precioEscala));
+alert(valorFinal(destinos[lugar], precioDestinos[lugar], clases[clase], precioClases[clase], precioEscala));
 
 
 
