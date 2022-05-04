@@ -2,6 +2,7 @@
 
 //FUNCIONES
 
+//Solicita al usuario que ingrese el número correspondiente al destino al que quiere viajar.
 function asignarLugar (){
     let aux = parseInt(prompt('Ingrese el numero correspondiente al lugar donde desea viajar: 0- ' + destinos[0] + ', 1- ' + destinos[1] + ', 2- ' + destinos[2] + ', 3- ' + destinos[3]));
     return (aux);
@@ -53,50 +54,17 @@ let precioEscala;
 
 lugar = asignarLugar();
 
-//while (lugar != 0 && lugar != 1 && lugar != 2 && lugar != 3){
-while (lugar < 0 || lugar > 3){
+while (lugar < 0 || lugar > destinos.length - 1 ){
     alert('Usted no ha ingresado un numero válido.');
     lugar = asignarLugar();
 }
 
-// alert('El lugar elegido es: ' + lugar);
-
-/*switch (lugar) {
-    case 'venecia':
-        precioLugar = 90000;
-        break;
-    case 'madrid':
-        precioLugar = 110000;
-        break;
-    case 'londres':
-        precioLugar = 95000;
-        break;
-    default:
-        precioLugar = 70000;
-        break;
-}*/
-
 clase = asignarClase();
 
-while (clase < 0 || clase > 3){
+while (clase < 0 || clase > clases.length - 1){
     alert('Usted no ha ingresado un número válido.');
     clase = asignarClase();
 }
-
-/*switch (clase) {
-    case 'turista':
-        precioClase = 0;
-        break;
-    case 'premium':
-        precioClase = 5000;
-        break;
-    case 'ejecutiva':
-        precioClase = 9000;
-        break;
-    default:
-        precioClase = 15000;
-        break;
-}*/
 
 precioEscala = conEscala();
 
