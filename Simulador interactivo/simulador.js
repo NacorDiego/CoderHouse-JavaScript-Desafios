@@ -13,7 +13,7 @@ function asignarClase (){
 }
 
 function conEscala (precioEscala){
-    let escala = (prompt('Seleccione si desea que sea con escala o sin escala. Elija: Si o No')).toLowerCase();
+    let escala = (prompt('Seleccione si desea que su viaje tenga escalas o sea directo. Elija SI para que tenga escala o NO para que sea directo.')).toLowerCase();
     if (escala == 'si') {
         aux = 0;
         return (aux);
