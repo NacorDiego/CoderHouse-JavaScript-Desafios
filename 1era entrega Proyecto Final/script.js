@@ -37,6 +37,12 @@ class Pasaje {
 
     setDestino(){
         let destino = (prompt('Elija el lugar donde desea viajar: Venecia, Madrid, Londres, Miami')).toLowerCase();
+
+        while (destino != 'venecia' && destino != 'madrid' && destino != 'londres' && destino != 'miami'){
+            alert('Usted no ha ingresado un destino válido.');
+            destino = (prompt('Elija el lugar donde desea viajar: Venecia, Madrid, Londres, Miami')).toLowerCase();
+        }
+
         switch (destino) {
             case 'venecia':
                 this.destino = 'Venecia';
@@ -58,6 +64,12 @@ class Pasaje {
     }
     setClase(){
         let clase = (prompt('Elija el tipo de asiento en el que desea viajar: turista, premium, ejecutiva, primera clase')).toLowerCase();
+
+        while (clase != 'turista' && clase != 'premium' && clase != 'ejecutiva' && clase != 'primera clase'){
+            alert('Usted no ha ingresado una clase válida.');
+            clase = (prompt('Elija el tipo de asiento en el que desea viajar: turista, premium, ejecutiva, primera clase')).toLowerCase();
+        }
+
         switch (clase) {
             case 'turista':
                 this.clase = 'Turista';
@@ -77,9 +89,15 @@ class Pasaje {
                 break;
         }
     }
-    setEscala(escala){
-        let aux = (prompt('Seleccione si desea que su viaje tenga escalas o sea directo. Elija SI para que tenga escala o NO para que sea directo.')).toLowerCase();
-        if (aux == 'si') {
+    setEscala(){
+        let escala = (prompt('Seleccione si desea que su viaje tenga escalas o sea directo. Elija SI para que tenga escala o NO para que sea directo.')).toLowerCase();
+
+        while (escala != 'si' && escala != 'no'){
+            alert('Usted no ha ingresado una respuesta válida.');
+            escala = (prompt('Seleccione si desea que su viaje tenga escalas o sea directo. Elija SI para que tenga escala o NO para que sea directo.')).toLowerCase();
+        }
+
+        if (escala == 'si') {
             this.escala = 'Si';
             this.precioEscala = 0;
         } else {
@@ -88,8 +106,8 @@ class Pasaje {
         }
     }
 
-    calcularCostoTotal (){
-        this.precioTotal = this.precioDestino + this.precioClase + this.precioEscala;
+    calcularCostoTotal (cantPasajes){
+        this.precioTotal = (this.precioDestino + this.precioClase + this.precioEscala) * cantPasajes;
     }
 }
 
@@ -129,11 +147,15 @@ function cantidadPasajes(cantPasajes, pasaje){
         arregloPasajes.push(pasaje);
     }
 
-    console.log(arregloPasajes);
-    console.log(arregloPasajes[1]);
+    pasaje.calcularCostoTotal(cantPasajes);
+
+    mostrarCostoTotal(cantPasajes,pasaje);
+}
+
+function mostrarCostoTotal (cantPasajes,pasaje){
+    alert('Usted a sacado ' + cantPasajes + ' pasajes para viajar a ' + pasaje.getDestino() + ' y el costo total es de: $' + pasaje.getPrecioTotal() + ". El valor total se compone de: Valor básico a " + pasaje.getDestino() + ": $" + (pasaje.getPrecioDestino() * cantPasajes) + " - La clase " + pasaje.getClase() + " tiene un valor agregado de: $" + (pasaje.getPrecioClase() * cantPasajes) + " - Usted seleccionó " + pasaje.getEscala() + " en escala, por lo tanto tiene un valor agregado de: $" + (pasaje.getPrecioEscala() * cantPasajes) + ". Gracias por viajar con nosotros.");
 }
 
 //PROGRAMA PRINCIPAL
 
 generarPasaje();
- 
