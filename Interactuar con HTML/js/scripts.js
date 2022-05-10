@@ -27,44 +27,44 @@ const pelota6 = new Item(6,'pelotas','molten',5500, "./img/Pelotas/molten.jpeg")
 
 
 
-let mercaderias = [camiseta1, camiseta2, camiseta3, camiseta4, camiseta5, camiseta6, camiseta7, camiseta8, camiseta9, pelota1, pelota2, pelota3, pelota4, pelota5, pelota6];
+let camisetas = [camiseta1, camiseta2, camiseta3, camiseta4, camiseta5, camiseta6, camiseta7, camiseta8];
+
+let pelotas = [pelota1, pelota2, pelota3, pelota4, pelota5, pelota6];
 
 let contenedorItems = document.getElementById('contenedorItems');
 
-mercaderias.forEach(mercaderia => {
-    switch (mercaderia.categoria) {
-        case 'camisetas':
-            contenedorItems.innerHTML += `
-                <h2> 
-                <div class="col-4 d-flex justify-content-center mt-5">
-                    <div class="card" style="width: 18rem;">
-                        <img src="${mercaderia.img}" class="card-img-top" alt="camiseta">
-                        <div class="card-body">
-                            <div id="camiseta${mercaderia.id}" class="itemClass">
-                                <p class="textoCamiseta"> Categoría: ${mercaderia.categoria} </p>
-                                <p class="textoCamiseta"> Club: ${mercaderia.nombre} </p>
-                                <p class="textoCamiseta"> Precio: $${mercaderia.precio} </p>
-                                <a href="#" class="btn botonCamiseta">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>    
-                </div>     
-            `
-        case 'pelotas':
-            contenedorItems.innerHTML += `
-                <div class="col-4 d-flex justify-content-center mt-5">
-                    <div class="card" style="width: 18rem;">
-                        <img src="${mercaderia.img}" class="card-img-top" alt="camiseta">
-                        <div class="card-body">
-                            <div id="camiseta${mercaderia.id}" class="itemClass">
-                                <p class="textoCamiseta"> Categoría: ${mercaderia.categoria} </p>
-                                <p class="textoCamiseta"> Club: ${mercaderia.nombre} </p>
-                                <p class="textoCamiseta"> Precio: $${mercaderia.precio} </p>
-                                <a href="#" class="btn botonCamiseta">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>    
-                </div>     
-            `
-    }
+camisetas.forEach(camiseta => {
+    idContCamisetas.innerHTML += `
+        <div class="col-4 d-flex justify-content-center mt-5">
+            <div class="card" style="width: 18rem;">
+                <img src="${camiseta.img}" class="card-img-top" alt="camiseta">
+                <div class="card-body">
+                    <div id="camiseta${camiseta.id}" class="itemClass">
+                        <p class="textoCamiseta"> Categoría: ${camiseta.categoria} </p>
+                        <p class="textoCamiseta"> Club: ${camiseta.nombre} </p>
+                        <p class="textoCamiseta"> Precio: $${camiseta.precio} </p>
+                        <a href="#" class="btn botonCamiseta">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>    
+        </div>     
+    `
+})
+
+pelotas.forEach(pelota => {
+    contenedorItems.innerHTML += `
+        <div class="col-4 d-flex justify-content-center mt-5">
+            <div class="card" style="width: 18rem;">
+                <img src="${pelota.img}" class="card-img-top" alt="camiseta">
+                <div class="card-body">
+                    <div id="camiseta${pelota.id}" class="itemClass">
+                        <p class="textoCamiseta"> Categoría: ${pelota.categoria} </p>
+                        <p class="textoCamiseta"> Club: ${pelota.nombre} </p>
+                        <p class="textoCamiseta"> Precio: $${pelota.precio} </p>
+                        <a href="#" class="btn botonCamiseta">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>    
+        </div>     
+    `
 })
