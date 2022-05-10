@@ -1,7 +1,26 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .contenedorCamisetas {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .card {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,255,0.7);
+}
+
+.textoCamiseta {
+    color: #fff;
+    font-weight: 300;
+}
+
+.botonCamiseta {
+    color: #fff;
+    border-color: #fff;
+    background-color: transparent;
+}
+
+.botonCamiseta:hover {
+    color: #fff;
 }
