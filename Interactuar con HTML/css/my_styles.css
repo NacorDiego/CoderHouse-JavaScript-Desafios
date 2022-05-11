@@ -6,6 +6,12 @@ body {
     min-height: 100vh;
 }
 
+.tituloSeccion {
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(0, 0, 255)
+}
+
 .card {
     background-color: rgba(0,0,255,0.7);
 }

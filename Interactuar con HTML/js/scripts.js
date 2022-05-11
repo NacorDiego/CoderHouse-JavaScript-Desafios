@@ -27,14 +27,16 @@ const pelota6 = new Item(6,'pelotas','molten',5500, "./img/Pelotas/molten.jpeg")
 
 
 
-let camisetas = [camiseta1, camiseta2, camiseta3, camiseta4, camiseta5, camiseta6, camiseta7, camiseta8];
+let camisetas = [camiseta1, camiseta2, camiseta3, camiseta4, camiseta5, camiseta6, camiseta7, camiseta8, camiseta9];
 
 let pelotas = [pelota1, pelota2, pelota3, pelota4, pelota5, pelota6];
 
-let contenedorItems = document.getElementById('contenedorItems');
+let contenedorCamisetas = document.getElementById('idContCamisetas');
+
+let contenedorPelotas = document.getElementById('idContPelotas')
 
 camisetas.forEach(camiseta => {
-    idContCamisetas.innerHTML += `
+    contenedorCamisetas.innerHTML += `
         <div class="col-4 d-flex justify-content-center mt-5">
             <div class="card" style="width: 18rem;">
                 <img src="${camiseta.img}" class="card-img-top" alt="camiseta">
@@ -52,7 +54,7 @@ camisetas.forEach(camiseta => {
 })
 
 pelotas.forEach(pelota => {
-    contenedorItems.innerHTML += `
+    contenedorPelotas.innerHTML += `
         <div class="col-4 d-flex justify-content-center mt-5">
             <div class="card" style="width: 18rem;">
                 <img src="${pelota.img}" class="card-img-top" alt="camiseta">
