@@ -9,11 +9,11 @@ body {
 .tituloSeccion {
     text-align: center;
     font-size: 3rem;
-    color: rgb(0, 0, 255);
+    color: rgb(25, 25, 25);
 }
 
 .card {
-    background-color: rgba(0,0,255,0.7);
+    background-color: rgba(25,25,25,0.8);
 }
 
 .textoCamiseta {
@@ -21,7 +21,7 @@ body {
     font-weight: 300;
 }
 
-.botonCamiseta {
+.boton {
     color: #fff;
     border-color: #fff;
     background-color: transparent;

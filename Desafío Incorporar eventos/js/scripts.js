@@ -35,6 +35,7 @@ let contenedorCamisetas = document.getElementById('idContCamisetas');
 
 let contenedorPelotas = document.getElementById('idContPelotas')
 
+
 camisetas.forEach(camiseta => {
     contenedorCamisetas.innerHTML += `
         <div class="col-4 d-flex justify-content-center mt-5">
@@ -45,12 +46,60 @@ camisetas.forEach(camiseta => {
                         <p class="textoCamiseta"> Categoría: ${camiseta.categoria} </p>
                         <p class="textoCamiseta"> Club: ${camiseta.nombre} </p>
                         <p class="textoCamiseta"> Precio: $${camiseta.precio} </p>
-                        <a href="#" class="btn botonCamiseta">Agregar al carrito</a>
+                        <a href="#" id="botonCamiseta${camiseta.id}" class="btn boton">Agregar al carrito</a>
                     </div>
                 </div>
             </div>    
         </div>     
     `
+})
+
+//EVENTO ESCUCHADOR CAMISETAS
+
+let botonCamiseta1 = document.getElementById(`botonCamiseta1`);
+botonCamiseta1.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
+})
+let botonCamiseta2 = document.getElementById(`botonCamiseta2`);
+botonCamiseta2.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
+})
+let botonCamiseta3 = document.getElementById(`botonCamiseta3`);
+botonCamiseta3.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
+})
+let botonCamiset4 = document.getElementById(`botonCamiseta4`);
+botonCamiseta4.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
+})
+let botonCamiseta5 = document.getElementById(`botonCamiseta5`);
+botonCamiseta5.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
+})
+let botonCamiseta6 = document.getElementById(`botonCamiseta6`);
+botonCamiseta6.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
+})
+let botonCamiseta7 = document.getElementById(`botonCamiseta7`);
+botonCamiseta7.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
+})
+let botonCamiseta8 = document.getElementById(`botonCamiseta8`);
+botonCamiseta8.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
+})
+let botonCamiseta9 = document.getElementById(`botonCamiseta9`);
+botonCamiseta9.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Camiseta añadida al carrito!');
 })
 
 pelotas.forEach(pelota => {
@@ -63,10 +112,43 @@ pelotas.forEach(pelota => {
                         <p class="textoCamiseta"> Categoría: ${pelota.categoria} </p>
                         <p class="textoCamiseta"> Club: ${pelota.nombre} </p>
                         <p class="textoCamiseta"> Precio: $${pelota.precio} </p>
-                        <a href="#" class="btn botonCamiseta">Agregar al carrito</a>
+                        <a href="#" id="botonPelota${pelota.id}" class="btn boton">Agregar al carrito</a>
                     </div>
                 </div>
             </div>    
         </div>     
     `
+})
+
+//EVENTO ESCUCHADOR PELOTAS
+
+let botonPelota1 = document.getElementById(`botonPelota1`);
+botonPelota1.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Pelota añadida al carrito!');
+})
+let botonPelota2 = document.getElementById(`botonPelota2`);
+botonPelota2.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Pelota añadida al carrito!');
+})
+let botonPelota3 = document.getElementById(`botonPelota3`);
+botonPelota3.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Pelota añadida al carrito!');
+})
+let botoPelota4 = document.getElementById(`botonPelota4`);
+botonPelota4.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Pelota añadida al carrito!');
+})
+let botonPelota5 = document.getElementById(`botonPelota5`);
+botonPelota5.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Pelota añadida al carrito!');
+})
+let botonPelota6 = document.getElementById(`botonPelota6`);
+botonPelota6.addEventListener("click",(event) => {
+    event.preventDefault();
+    alert('Pelota añadida al carrito!');
 })
