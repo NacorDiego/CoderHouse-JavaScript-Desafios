@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap" rel="stylesheet">
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- My css -->
@@ -13,99 +17,124 @@
     <title>Segunda entrega Proyecto Final</title>
 </head>
 <body>
-    
-    <!-- <nav class="container-fluid">
-        <div class="row">
-            <ul class="col-md-4 d-flex flex-row">
-                <li>
-                    <a href="">Zapatillas</a>
-                </li>
-                <li>
-                    <a href="">Hombre</a>
-                </li>
-                <li>
-                    <a href="">Mujer</a>
-                </li>
-                <li>
-                    <a href="">Contacto</a>
-                </li>
-            </ul>
-            
-            <div class="col-md-4">
-                <img src="" alt="Logo">
-            </div>
-            
-            <ul class="col-md-4 d-flex flex-row">
-                <li>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </li>
-                <li>
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </li>
-            </ul>
-        </div>
-    </nav> -->
 
-    <nav class="navbar fixed-top bg-light">
+    <!-- Nav -->
+    <nav class="navegacion navbar fixed-top bg-light">
         <div class="container-fluid">
-            <ul class="col-md-4 d-flex flex-row justify-content-between">
-                <li>
-                    <a href="">Zapatillas</a>
+            <ul class="nav col-md-4 d-flex flex-row justify-content-start">
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">Catálogo</a>
                 </li>
-                <li>
-                    <a href="">Hombre</a>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">Hombre</a>
                 </li>
-                <li>
-                    <a href="">Mujer</a>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">Mujer</a>
                 </li>
-                <li>
-                    <a href="">Contacto</a>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">Contacto</a>
                 </li>
             </ul>
             
             <div class="col-md-4 d-flex flex-row justify-content-center">
-                <img src="" alt="Logo">
+                <a href="#">
+                    <img class="navegacion__logo" src="./img/svg/logo.svg" alt="Logo">
+                </a>
             </div>
             
-            <ul class="col-md-4 d-flex flex-row justify-content-end">
-                <li>
-                    <i class="fa-solid fa-magnifying-glass"></i>
+            <ul class="nav col-md-4 d-flex flex-row justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
                 </li>
-                <li>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Portada de la página -->
-    <header>
-        <div class="contPortada">
-            <h1></h1>
-            <button></button>
+    <!-- Header - Portada de la página -->
+    <header class="header">
+        <div class="header__portada container-fluid d-flex flex-column justify-content-center">
+                <h1 class="header__portada__h1">OTOÑO INVIERNO 2022</h1>
+                <h2 class="header__portada__h2">NUEVA COLECCIÓN</h2>
+                <button class="col-md-2 btn btn-danger">VER CATÁLOGO</button>
+            </div>
         </div>
     </header>
 
     <!-- Sección prodúctos destacados -->
-    <section>
-        <div id="contProdDestacados" class="contProdDestacados"></div>
+    <section class="prodDestacados">
+        <div id="contProdDestacados" class="prodDestacados__contenedor"></div>
     </section>
 
     <!-- Sección nuevos modelos por género -->
-    <section>
+    <section class="nuevoModelo container-fluid p-0 d-flex flex-row">
         <!-- Mujer -->
-        <div class="contNuevoModelo"></div>
+        <div class="nuevoModelo__contFemenino col-md-6 d-flex flex-column justify-content-end align-items-start">
+            <h3 class="nuevoModelo__contFemenino__titulo ms-5">Calzado <br> FEMENINO</h3>
+            <button class="btn btn-danger ms-5 mb-2">VER CATÁLOGO</button>
+        </div>
         <!-- Hombre -->
-        <div class="contNuevoModelo"></div>
+        <div class="nuevoModelo__contMasculino col-md-6 d-flex flex-column justify-content-end align-items-start">
+            <h3 class="nuevoModelo__contFemenino__titulo ms-5">Calzado <br> MASCULINO</h3>
+            <button class="btn btn-danger ms-5 mb-2">VER CATÁLOGO</button>
+        </div>
     </section>
 
     <!-- Sección lista de modelos -->
-    <section>
-        <div id="contModelos" class="contModelos"></div>
+    <section class="modelos bg-light">
+        <div id="contModelos" class="modelos__contenedor"></div>
+    </section>
+
+    <!-- Sección contacto -->
+    <section class="contacto container d-flex align-items-center justify-content-center">
+        <form class="contacto__formulario">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre y apellido</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre y apellido">
+            </div>
+            <div class="mb-3">
+                <label for="mail" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="mail" placeholder="nombre@ejemplo.com">
+            </div>
+            <div class="mb-3">
+                <label for="campoTexto" class="form-label">Escriba su consulta</label>
+                <textarea class="form-control" id="campoTexto" rows="3"></textarea>
+            </div>
+            <button class="btn btn-primary">ENVIAR</button>
+        </form>
     </section>
 
     <!-- Pie de página -->
-    <footer></footer>
+    <footer class="footer container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-muted">© Diego Nacor 2022</p>
+    
+        <ul class="nav col-md-4 d-flex justify-content-center">
+            <li class="nav-item">
+                <a href="" class="nav-link text-muted">Política de privacidad</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link text-muted">Política de cokies</a>
+            </li>
+        </ul>
+    
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-youtube"></i></a>
+            </li>
+        </ul>
+    </footer>
 
     <!-- JavaScript bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
