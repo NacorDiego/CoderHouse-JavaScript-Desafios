@@ -2,6 +2,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.contUsuario {
+    margin-right: 10px;
+}
+
 .contenedorCamisetas {
     min-height: 100vh;
 }
@@ -9,7 +13,7 @@ body {
 .tituloSeccion {
     text-align: center;
     font-size: 3rem;
-    color: rgb(0, 0, 255)
+    color: rgb(0, 0, 255);
 }
 
 .card {

@@ -70,3 +70,12 @@ pelotas.forEach(pelota => {
         </div>     
     `
 })
+
+alert('Bienvenido a TiendaOnline, su lugar de deportes.');
+let credenciales = prompt('Por favor ingrese su nombre de usuario para iniciar sesión: ');
+
+let nombreUsuario = document.getElementById('nombreUsuario');
+
+nombreUsuario.innerHTML += `
+    <p class="m-0">${credenciales}</p>
+`
