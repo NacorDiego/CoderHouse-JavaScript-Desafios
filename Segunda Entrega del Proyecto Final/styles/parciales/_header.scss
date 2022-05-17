@@ -15,8 +15,11 @@
             font-family: $familia-fuente;
             color: #ffffff;
         }
+        &__h1 {
+            font-size: 5rem;
+        }
         &__h2 {
-            font-size: 12rem;
+            font-size: 15rem;
         }
     }
 }

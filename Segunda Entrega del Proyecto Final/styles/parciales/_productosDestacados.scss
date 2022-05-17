@@ -1,3 +1,11 @@
 .prodDestacados{
     min-height: 60vh;
-}
+
+    &__contenedor {
+        height: 60vh;
+        
+        &__item {
+            height: 60vh;
+        }
+    }
+}   

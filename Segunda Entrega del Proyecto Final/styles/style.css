@@ -17,12 +17,21 @@
   font-family: "Roboto Flex", sans-serif;
   color: #ffffff;
 }
+.header__portada__h1 {
+  font-size: 5rem;
+}
 .header__portada__h2 {
-  font-size: 12rem;
+  font-size: 15rem;
 }
 
 .prodDestacados {
   min-height: 60vh;
+}
+.prodDestacados__contenedor {
+  height: 60vh;
+}
+.prodDestacados__contenedor__item {
+  height: 60vh;
 }
 
 .nuevoModelo {
@@ -30,7 +39,7 @@
   font-family: "Roboto Flex", sans-serif;
 }
 .nuevoModelo__contFemenino {
-  background-image: url("../../img/modeloDestacado2.jpg");
+  background-image: url("../../img/femenino.jpg");
   background-size: cover;
   background-position: center;
 }
