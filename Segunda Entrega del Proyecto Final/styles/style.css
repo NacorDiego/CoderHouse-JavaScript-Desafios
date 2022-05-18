@@ -32,6 +32,16 @@
 }
 .prodDestacados__contenedor__item {
   height: 60vh;
+  font-family: "Roboto Flex", sans-serif;
+}
+.prodDestacados__contenedor__item__titulo {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 200;
+}
+.prodDestacados__contenedor__item__parrafo {
+  font-size: 1.2rem;
+  font-weight: 100;
 }
 
 .nuevoModelo {
