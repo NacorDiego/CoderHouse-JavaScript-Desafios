@@ -144,20 +144,20 @@
 
     <!-- Sección contacto -->
     <section class="contacto container d-flex align-items-center justify-content-center">
-        <form class="contacto__formulario">
+        <form id="formularioContacto" class="contacto__formulario">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre y apellido</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Nombre y apellido">
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre y apellido" required>
             </div>
             <div class="mb-3">
                 <label for="mail" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="mail" placeholder="nombre@ejemplo.com">
+                <input type="email" class="form-control" id="mail" placeholder="nombre@ejemplo.com" required>
             </div>
             <div class="mb-3">
                 <label for="campoTexto" class="form-label">Escriba su consulta</label>
                 <textarea class="form-control" id="campoTexto" rows="3"></textarea>
             </div>
-            <button class="btn btn-primary">ENVIAR</button>
+            <button type="submit" class="contacto__formulario__boton btn btn-primary">ENVIAR</button>
         </form>
     </section>
 

@@ -77,11 +77,21 @@ productos.forEach((producto,i) => {
     });
 })
 
-
 //DE ESTA MANERA SE PODRÍA CREAR UN BOTÓN PARA ELIMINAR UN ITEM DEL CARRITO (AGREGAR FUNCIONALIDAD EN PRÓXIMA ENTREGA). Minuto 1:36:00 del video Workshop I.
 // document.querySelector(`#producto${i}`).remove();
 //carrito.splice(i,1)
 
+let formularioC = document.querySelector('#formularioContacto');
 
+
+formularioC.addEventListener('submit', (event) => {
+    //Previene que al dar click en el botón del form se refresque la página.
+    event.preventDefault(); 
+    let nombre = document.querySelector('#nombre').value;
+    let mail = document.querySelector('#mail').value;
+    let campoTexto = document.querySelector('#campoTexto').value;
+
+    alert('Bienvenido ' + nombre + ' en breve te llegará un mail a ' + mail + ' respondiendo tu consulta. Saludos desde ZSports.');
+})
 
 
