@@ -24,6 +24,7 @@ let productos = [producto1, producto2, producto3, producto4, producto5, producto
 let carrito = [];
 
 
+
 //Consulto en mi localStorage si existe mi item carrito. Si el carrito no existe me va a devolver null.
 //Se crea en esta instancia porque más adelante voy a consultar el carrito.
 if(localStorage.getItem('carrito')){ //Si no existe, esto da null.
@@ -35,6 +36,7 @@ if(localStorage.getItem('carrito')){ //Si no existe, esto da null.
 }
 
 let contModelos = document.querySelector('#contModelos');
+let cantCarrito = document.querySelector('#cantCarrito');
 
 productos.forEach((producto, i) => {
     contModelos.innerHTML += `
@@ -50,24 +52,35 @@ productos.forEach((producto, i) => {
     `
 })
 
+//Coloca la cantidad inicial de items en el carrito del localStorage al momento de iniciar la página.
+cantCarrito.innerHTML = `
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span>${carrito.length}</span>
+`
 
 //Consulto cada botón de cada producto y le agrego un evento escuchador de tipo 'click'. Cuando se clickea un botón retorna el objeto producto correspondiente a ese botón.
 productos.forEach((producto,i) => {
     document.querySelector(`#botonProducto${i}`).addEventListener('click', () => {
-        //DE ESTA MANERA SE PODRÍA CREAR UN BOTÓN PARA ELIMINAR UN ITEM DEL CARRITO (PRACTICAR). Minuto 1:36:00 del video Workshop I.
-        // document.querySelector(`#producto${i}`).remove();
-        //carrito.splice(i,1)
-
+        
         //Guardo el producto del array productos en la posición i en 'productoCarrito'.
         let productoCarrito = productos[i];
         //Guardo, mediante push en el array carrito, el producto que guarde anteriormente.
         carrito.push(productoCarrito);
         //Piso cada uno de los productos en el localStorage. Como lo consulte anteriormente, tengo los datos del localStorage en el carrito.
         localStorage.setItem('carrito', JSON.stringify(carrito));
+        
+        //Actualiza la cantidad de items en el carrito del localStorage cuando se hace click en el botón.
+        cantCarrito.innerHTML = `
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>${carrito.length}</span>
+        `;
     });
 })
 
 
+//DE ESTA MANERA SE PODRÍA CREAR UN BOTÓN PARA ELIMINAR UN ITEM DEL CARRITO (AGREGAR FUNCIONALIDAD EN PRÓXIMA ENTREGA). Minuto 1:36:00 del video Workshop I.
+// document.querySelector(`#producto${i}`).remove();
+//carrito.splice(i,1)
 
 
 
