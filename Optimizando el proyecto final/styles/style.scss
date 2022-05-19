@@ -1,7 +1,9 @@
-@import './parciales/nav';
-@import './parciales/header';
-@import './parciales/productosDestacados';
-@import './parciales/nuevoModelo';
-@import './parciales/modelos';
-@import './parciales/contacto';
-@import './parciales/footer';
+@import './parciales_index/nav';
+@import './parciales_index/header';
+@import './parciales_index/productosDestacados';
+@import './parciales_index/nuevoModelo';
+@import './parciales_index/modelos';
+@import './parciales_index/contacto';
+@import './parciales_index/footer';
+@import './parciales_carrito/carrito';
+@import './parciales_producto/producto';

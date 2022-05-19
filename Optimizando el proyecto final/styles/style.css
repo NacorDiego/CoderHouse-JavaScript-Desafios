@@ -78,4 +78,14 @@
   width: 50px;
 }
 
+.carrito {
+  min-height: 100vh;
+}
+
+.producto {
+  font-family: "Roboto Flex", sans-serif;
+  margin-top: 20vh;
+  min-height: 90vh;
+}
+
 /*# sourceMappingURL=style.css.map */
