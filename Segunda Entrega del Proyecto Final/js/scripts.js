@@ -87,11 +87,15 @@ let formularioC = document.querySelector('#formularioContacto');
 formularioC.addEventListener('submit', (event) => {
     //Previene que al dar click en el botón del form se refresque la página.
     event.preventDefault(); 
+    //Guarda los valores de los inputs nombre y mail.
     let nombre = document.querySelector('#nombre').value;
     let mail = document.querySelector('#mail').value;
-    let campoTexto = document.querySelector('#campoTexto').value;
-
+    
+    //Muestra los valores de los input nombre y mail en un alert.
     alert('Bienvenido ' + nombre + ' en breve te llegará un mail a ' + mail + ' respondiendo tu consulta. Saludos desde ZSports.');
+    
+    //Resetea el formulario.
+    formularioC.reset();
 })
 
 
