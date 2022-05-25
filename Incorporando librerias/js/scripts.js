@@ -74,6 +74,22 @@ productos.forEach((producto,i) => {
             <i class="fa-solid fa-cart-shopping"></i>
             <span>${carrito.length}</span>
         `;
+
+        //Creo alerta con TOASTIFY cuando se agrega un producto al carrito.
+        Toastify({
+            text: `¡${producto.marca} ${producto.modelo} agregadas al carrito!`,
+            duration: 3000,
+            destination: "./pages/carrito.html",
+            newWindow: true,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "#28B463",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
     });
 })
 
@@ -88,8 +104,12 @@ formularioC.addEventListener('submit', (event) => {
     let nombre = document.querySelector('#nombre').value;
     let mail = document.querySelector('#mail').value;
     
-    //Muestra los valores de los input nombre y mail en un alert.
-    alert('Bienvenido ' + nombre + ' en breve te llegará un mail a ' + mail + ' respondiendo tu consulta. Saludos desde ZSports.');
+    //Muestra los valores de los input nombre y mail en una alerta con la librería SweetAlert.
+    Swal.fire(
+        `¡Buen trabajo ${nombre}!`,
+        `¡Revisa la confirmación en tu correo ${mail}!`,
+        'success'
+    )
     
     //Resetea el formulario.
     formularioC.reset();
