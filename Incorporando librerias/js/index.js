@@ -107,7 +107,7 @@ formularioC.addEventListener('submit', (event) => {
     //Muestra los valores de los input nombre y mail en una alerta con la librería SweetAlert.
     Swal.fire(
         `¡Buen trabajo ${nombre}!`,
-        `¡Revisa la confirmación en tu correo ${mail}!`,
+        `¡Te llegará la confirmación a tu correo ${mail}!`,
         'success'
     )
     

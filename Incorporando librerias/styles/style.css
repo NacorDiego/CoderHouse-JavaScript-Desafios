@@ -1,6 +1,11 @@
 .navegacion__logo {
   width: 80px;
 }
+.navegacion__link {
+  font-size: 1.35rem;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 400;
+}
 
 .header {
   min-height: 95vh;
@@ -11,7 +16,7 @@
 }
 .header__portada {
   background-color: rgba(0, 0, 0, 0.2);
-  margin-top: 11vh;
+  margin-top: 10.2vh;
   height: 100%;
 }
 .header__portada__h1, .header__portada__h2 {
