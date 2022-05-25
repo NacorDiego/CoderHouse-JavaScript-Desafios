@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap"
+        rel="stylesheet">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- My css -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Optimizando proyecto final</title>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav class="navegacion navbar fixed-top bg-light">
+        <div class="container-fluid">
+            <ul class="nav col-md-4 d-flex flex-row justify-content-start">
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">Catálogo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">Hombre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">Mujer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">Contacto</a>
+                </li>
+            </ul>
+
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+                <a href="#">
+                    <img class="navegacion__logo" src="./img/svg/logo.svg" alt="Logo">
+                </a>
+            </div>
+
+            <ul class="nav col-md-4 d-flex flex-row justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="./pages/carrito.html">
+                        <div id="cantCarrito"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header - Portada de la página -->
+    <header class="header">
+        <div class="header__portada container-fluid d-flex flex-column justify-content-center">
+            <h1 class="header__portada__h1 ms-5">OTOÑO INVIERNO 2022</h1>
+            <h2 class="header__portada__h2 ms-5">NUEVA COLECCIÓN</h2>
+            <button class="col-md-2 btn btn-danger ms-5">VER CATÁLOGO</button>
+        </div>
+        </div>
+    </header>
+
+    <!-- Sección prodúctos destacados -->
+    <section class="prodDestacados bg-dark">
+        <div id="contProdDestacados">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner container prodDestacados__contenedor">
+                    <div class="carousel-item active">
+                        <div class="prodDestacados__contenedor__item row justify-content-between align-items-center">
+                            <img class="rounded-5 col-5" src="./img/novedades/novedad0.jpg" alt="Novedad 0">
+                            <div class="col-7">
+                                <h3 class="prodDestacados__contenedor__item__titulo">Nike Phantom v2</h3>
+                                <p class="prodDestacados__contenedor__item__parrafo text-light">Los mejores creadores de juego del mundo desarrollaron su creatividad y agilidad jugando en la calle. Los Nike Phantom Vision 2 llevan esas habilidades y las trasladan a la cancha para que puedas jugar con libertad y precisión.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="prodDestacados__contenedor__item row justify-content-between align-items-center">
+                            <img class="rounded-5 col-5" src="./img/novedades/novedad1.jpg" alt="Novedad 0">
+                            <div class="col-7">
+                                <h3 class="prodDestacados__contenedor__item__titulo">Adidas Response 2.0</h3>
+                                <p class="prodDestacados__contenedor__item__parrafo text-light">Enfrentate a tu día con total comodidad con estas zapatillas de running adidas en tus pies. El exterior de malla es transpirable para mantener tus pies frescos incluso en los días más calurosos. La amortiguación energizada se encarga de inyéctarle fluidez a tus pasos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="prodDestacados__contenedor__item row justify-content-between align-items-center">
+                            <img class="rounded-5 col-5" src="./img/novedades/novedad2.jpg" alt="Novedad 0">
+                            <div class="col-7">
+                                <h3 class="prodDestacados__contenedor__item__titulo">Puma Fractor 3</h3>
+                                <p class="prodDestacados__contenedor__item__parrafo text-light">Diseñadas para ofrecer flexibilidad, estabilidad y capacidad de respuesta, cuentan con la tecnología LQDCELL de PUMA y una entresuela con ProFoam. Si a esto le añadimos la estructura de TPU y la mesh del exterior, para la respirabilidad; así como el material sintético que aporta sujeción, obtenemos unas zapatillas que seguirán tu ritmo incluso en los entrenamientos más intensos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección nuevos modelos por género -->
+    <section class="nuevoModelo container-fluid p-0 d-flex flex-row">
+        <!-- Mujer -->
+        <div class="nuevoModelo__contFemenino col-md-6 d-flex flex-column justify-content-end align-items-start">
+            <h3 class="nuevoModelo__contFemenino__titulo ms-5">Calzado <br> FEMENINO</h3>
+            <button class="btn btn-danger ms-5 mb-2">VER CATÁLOGO</button>
+        </div>
+        <!-- Hombre -->
+        <div class="nuevoModelo__contMasculino col-md-6 d-flex flex-column justify-content-end align-items-start">
+            <h3 class="nuevoModelo__contFemenino__titulo ms-5">Calzado <br> MASCULINO</h3>
+            <button class="btn btn-danger ms-5 mb-2">VER CATÁLOGO</button>
+        </div>
+    </section>
+
+    <!-- Sección lista de modelos -->
+    <section class="modelos bg-light mt-5 pb-5">
+        <div class="container">
+            <div id="contModelos" class="modelos__contenedor row justify-content-between g-5"></div>
+        </div>
+    </section>
+
+    <!-- Sección contacto -->
+    <section class="contacto container d-flex align-items-center justify-content-center">
+        <form id="formularioContacto" class="contacto__formulario">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre y apellido</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre y apellido" required>
+            </div>
+            <div class="mb-3">
+                <label for="mail" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="mail" placeholder="nombre@ejemplo.com" required>
+            </div>
+            <div class="mb-3">
+                <label for="campoTexto" class="form-label">Escriba su consulta</label>
+                <textarea class="form-control" id="campoTexto" rows="3"></textarea>
+            </div>
+            <button type="submit" class="contacto__formulario__boton btn btn-primary">ENVIAR</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer
+        class="footer container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top">
+        <p class="col-md-4 mb-0 text-muted">© Diego Nacor 2022</p>
+
+        <ul class="nav col-md-4 d-flex justify-content-center">
+            <li class="nav-item">
+                <a href="" class="nav-link text-muted">Política de privacidad</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link text-muted">Política de cokies</a>
+            </li>
+        </ul>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted"><i class="fa-brands fa-youtube"></i></a>
+            </li>
+        </ul>
+    </footer>
+
+    <!-- JavaScript bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <!-- My scripts -->
+    <script src="./js/scripts.js"></script>
+</body>
+
+</html>

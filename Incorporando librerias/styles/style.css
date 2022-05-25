@@ -1,0 +1,91 @@
+.navegacion__logo {
+  width: 80px;
+}
+
+.header {
+  min-height: 95vh;
+  height: 90vh;
+  background-image: url("../../img/portada.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.header__portada {
+  margin-top: 3.5%;
+  height: 100%;
+}
+.header__portada__h1, .header__portada__h2 {
+  font-family: "Roboto Flex", sans-serif;
+  color: #ffffff;
+}
+.header__portada__h1 {
+  font-size: 5rem;
+}
+.header__portada__h2 {
+  font-size: 15rem;
+}
+
+.prodDestacados {
+  min-height: 60vh;
+}
+.prodDestacados__contenedor {
+  height: 60vh;
+}
+.prodDestacados__contenedor__item {
+  height: 60vh;
+  font-family: "Roboto Flex", sans-serif;
+}
+.prodDestacados__contenedor__item__titulo {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 200;
+}
+.prodDestacados__contenedor__item__parrafo {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+.nuevoModelo {
+  min-height: 50vh;
+  font-family: "Roboto Flex", sans-serif;
+}
+.nuevoModelo__contFemenino {
+  background-image: url("../../img/femenino.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.nuevoModelo__contFemenino__titulo {
+  color: #ffffff;
+}
+.nuevoModelo__contMasculino {
+  background-image: url("../../img/modeloDestacado1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.modelos {
+  min-height: 100vh;
+  background-color: blue;
+}
+
+.contacto {
+  min-height: 60vh;
+}
+.contacto__formulario {
+  width: 80%;
+}
+
+.footer__logo {
+  width: 50px;
+}
+
+.carrito {
+  min-height: 100vh;
+}
+
+.producto {
+  font-family: "Roboto Flex", sans-serif;
+  margin-top: 20vh;
+  min-height: 90vh;
+}
+
+/*# sourceMappingURL=style.css.map */

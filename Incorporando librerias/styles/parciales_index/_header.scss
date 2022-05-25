@@ -1,0 +1,25 @@
+@import './variables';
+
+.header {
+    min-height: 95vh;
+    height: 90vh;
+    background-image: url('../../img/portada.jpg');
+    background-position: center;
+    background-size: cover;
+
+    &__portada {
+        margin-top: 3.5%;
+        height: 100%;
+
+        &__h1, &__h2 {
+            font-family: $familia-fuente;
+            color: #ffffff;
+        }
+        &__h1 {
+            font-size: 5rem;
+        }
+        &__h2 {
+            font-size: 15rem;
+        }
+    }
+}

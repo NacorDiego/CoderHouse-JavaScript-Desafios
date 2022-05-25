@@ -1,0 +1,24 @@
+@import './variables';
+
+.prodDestacados{
+    min-height: 60vh;
+
+    &__contenedor {
+        height: 60vh;
+        
+        &__item {
+            height: 60vh;
+            font-family: $familia-fuente;
+
+            &__titulo {
+                color: #ffffff;
+                font-size: 2rem;
+                font-weight: 200;
+            }
+            &__parrafo {
+                font-size: 1.2rem;
+                font-weight: 100;
+            }
+        }
+    }
+}   
