@@ -11,7 +11,7 @@
 }
 .header__portada {
   background-color: rgba(0, 0, 0, 0.2);
-  margin-top: 3.5%;
+  margin-top: 11vh;
   height: 100%;
 }
 .header__portada__h1, .header__portada__h2 {
@@ -81,12 +81,38 @@
 
 .carrito {
   min-height: 100vh;
+  margin-top: 20vh;
+  font-family: "Roboto Flex", sans-serif;
+}
+.carrito__contCarrito {
+  min-height: 70vh;
+  width: 100%;
+}
+.carrito__contCarrito__span {
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .producto {
   font-family: "Roboto Flex", sans-serif;
   margin-top: 20vh;
   min-height: 90vh;
+}
+
+.carrito {
+  min-height: 100vh;
+  margin-top: 20vh;
+  font-family: "Roboto Flex", sans-serif;
+}
+.carrito__contCarrito {
+  min-height: 70vh;
+  width: 100%;
+}
+.carrito__contCarrito__span {
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */

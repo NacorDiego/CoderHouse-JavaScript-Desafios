@@ -115,11 +115,3 @@ formularioC.addEventListener('submit', (event) => {
     formularioC.reset();
 })
 
-/* CÓDIGO QUE SE USARÁ PARA LA PÁGINA DEL CARRITO */
-
-//DE ESTA MANERA SE PODRÍA CREAR UN BOTÓN PARA ELIMINAR UN ITEM DEL CARRITO (AGREGAR FUNCIONALIDAD EN PRÓXIMA ENTREGA). Minuto 1:36:00 del video Workshop I.
-// document.querySelector(`#producto${i}`).remove();
-//carrito.splice(i,1)
-
-
-/* CÓDIGO QUE SE USARÁ PARA LA PÁGINA DE CADA PRODUCTO INDIVIDUAL */
