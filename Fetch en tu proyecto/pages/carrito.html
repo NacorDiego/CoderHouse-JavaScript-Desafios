@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap"
+        rel="stylesheet">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- My css -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Carrito | Optimizando proyecto final</title>
+</head>
+<body class="bg-dark">
+    
+    <!-- Nav -->
+    <nav class="navegacion navbar fixed-top bg-dark bg-opacity-75">
+        <div class="container-fluid">
+            <ul class="nav col-md-4 d-flex flex-row justify-content-start">
+                <li class="nav-item">
+                    <a class="navegacion__link nav-link text-light" href="">Catálogo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navegacion__link nav-link text-light" href="">Hombre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navegacion__link nav-link text-light" href="">Mujer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navegacion__link nav-link text-light" href="">Contacto</a>
+                </li>
+            </ul>
+
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+                <a href="../index.html">
+                    <img class="navegacion__logo" src="../img/svg/logo.svg" alt="Logo">
+                </a>
+            </div>
+
+            <ul class="nav col-md-4 d-flex flex-row justify-content-end">
+                <li class="nav-item">
+                    <a class="navegacion__link nav-link text-light" href="">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="navegacion__link nav-link text-light" href="./pages/carrito.html">
+                        <div id="cantCarrito"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="container carrito">
+        <div id="divCarrito" class="carrito__contCarrito col-12 bg-light shadow-sm rounded-4 border border-opacity-10 border-dark d-flex justify-content-center align-items-center">
+            <!-- <span class="carrito__contCarrito__span">No hay productos en el carrito.</span> -->
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer
+        class="footer container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top">
+        <p class="col-md-4 mb-0 text-light">© Diego Nacor 2022</p>
+
+        <ul class="nav col-md-4 d-flex justify-content-center">
+            <li class="nav-item">
+                <a href="" class="nav-link text-light">Política de privacidad</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="nav-link text-light">Política de cokies</a>
+            </li>
+        </ul>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-light"><i class="fa-brands fa-instagram"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-light"><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-light"><i class="fa-brands fa-youtube"></i></a>
+            </li>
+        </ul>
+    </footer>
+
+    <!-- Mi script -->
+    <script src="../js/index.js"></script>
+    <script src="../js/carrito.js"></script>
+</body>
+</html>
