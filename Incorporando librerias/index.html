@@ -145,21 +145,22 @@
     </section>
 
     <!-- Sección contacto -->
-    <section class="contacto container d-flex align-items-center justify-content-center">
-        <form id="formularioContacto" class="contacto__formulario">
+    <section class="contacto container d-flex flex-column align-items-center justify-content-center">
+        <h2 class="contacto__titulo text-light">CONSULTANOS</h2>
+        <form id="formularioContacto" class="contacto__formulario mt-4">
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre y apellido</label>
+                <label for="nombre" class="form-label text-light">Nombre y apellido</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Nombre y apellido" required>
             </div>
             <div class="mb-3">
-                <label for="mail" class="form-label">Correo electrónico</label>
+                <label for="mail" class="form-label text-light mt-3">Correo electrónico</label>
                 <input type="email" class="form-control" id="mail" placeholder="nombre@ejemplo.com" required>
             </div>
             <div class="mb-3">
-                <label for="campoTexto" class="form-label">Escriba su consulta</label>
+                <label for="campoTexto" class="form-label text-light mt-3">Escriba su consulta</label>
                 <textarea class="form-control" id="campoTexto" rows="3"></textarea>
             </div>
-            <button type="submit" class="contacto__formulario__boton btn btn-danger">ENVIAR</button>
+            <button type="submit" class="contacto__formulario__boton btn btn-danger mt-3">ENVIAR</button>
         </form>
     </section>
 
