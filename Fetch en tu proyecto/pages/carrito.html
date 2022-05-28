@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +22,9 @@
     <link rel="stylesheet" href="../styles/style.css">
     <title>Carrito | Optimizando proyecto final</title>
 </head>
+
 <body class="bg-dark">
-    
+
     <!-- Nav -->
     <nav class="navegacion navbar fixed-top bg-dark bg-opacity-75">
         <div class="container-fluid">
@@ -63,8 +65,20 @@
     </nav>
 
     <section class="container carrito">
-        <div id="divCarrito" class="carrito__contCarrito col-12 bg-light shadow-sm rounded-4 border border-opacity-10 border-dark d-flex justify-content-center align-items-center">
-            <!-- <span class="carrito__contCarrito__span">No hay productos en el carrito.</span> -->
+        <div id="divCarrito"
+            class="carrito__contCarrito col-12 bg-light shadow-sm rounded-4 border border-opacity-10 border-dark d-flex justify-content-center align-items-center">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCarrito"></tbody>
+            </table>
         </div>
     </section>
 
@@ -96,7 +110,8 @@
     </footer>
 
     <!-- Mi script -->
-    <script src="../js/index.js"></script>
+    <script src="../js/index3.js"></script>
     <script src="../js/carrito.js"></script>
 </body>
+
 </html>

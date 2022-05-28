@@ -2,16 +2,7 @@
 // document.querySelector(`#producto${i}`).remove();
 //carrito.splice(i,1)
 
-console.log(carrito);
+console.log('carrito.js')
 
-let divCarrito = document.querySelector('#divCarrito');
-
-if (carrito.length == 0) {
-    divCarrito.innerHTML = `
-        <span class="carrito__contCarrito__span">No hay productos en el carrito.</span>
-    `
-} else {
-    divCarrito.innerHTML = `
-        <span class="carrito__contCarrito__span">Hay productos en el carrito.</span>
-    `
-}
+mostrarCarrito();
+cantidadCarrito();
