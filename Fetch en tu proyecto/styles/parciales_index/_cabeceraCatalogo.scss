@@ -1,0 +1,17 @@
+@import './variables';
+
+.cabeceraCatalogo {
+    font-family: $familia-fuente;
+
+    &__contTitulo{
+        height: 30vh;
+
+        &__titulo {
+            font-size: 5rem;
+            font-weight: 400;
+        }
+    }
+    &__filtroBusqueda {
+        height: 7vh;
+    }
+}

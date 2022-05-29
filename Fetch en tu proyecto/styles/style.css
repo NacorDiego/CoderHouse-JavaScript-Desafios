@@ -96,8 +96,18 @@
   width: 50px;
 }
 
-.filtroBusqueda {
-  height: 5rem;
+.cabeceraCatalogo {
+  font-family: "Roboto Flex", sans-serif;
+}
+.cabeceraCatalogo__contTitulo {
+  height: 30vh;
+}
+.cabeceraCatalogo__contTitulo__titulo {
+  font-size: 5rem;
+  font-weight: 400;
+}
+.cabeceraCatalogo__filtroBusqueda {
+  height: 7vh;
 }
 
 .producto {
