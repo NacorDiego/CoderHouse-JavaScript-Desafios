@@ -40,7 +40,7 @@ function mostrarProductos(array) {
                     <p class="modelos__producto__precio mt-5 card-text">$${precio}</p>
                     <h5 class="card-title">${marca} ${modelo}</h5>
                     <p class="card-text">${stock} unidades</p>
-                    <button id="botonProducto${id}" class="btn btn-danger modelos__producto__boton">Agregar al carrito</button>
+                    <button id="botonProducto${id}" class="agregar btn btn-danger modelos__producto__boton">Agregar al carrito</button>
                 </div>
             </div>
         `
@@ -131,8 +131,9 @@ buscador.addEventListener("input", (e) => {
     mostrarProductos(buscar(productos, e.target.value))
 });
 
-// cardContainer.addEventListener("click", e => {
-//     if (e.target.classList.contains("agregar")) {
-//         agregar(e.target.id)
-//     }
-// })
+contModelos.addEventListener("click", e => {
+    if (e.target.classList.contains("agregar")) {
+        agregar(e.target.id)
+        console.log('capturo el evento')
+    }
+})
