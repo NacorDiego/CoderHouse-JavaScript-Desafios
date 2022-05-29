@@ -73,6 +73,10 @@
   min-height: 100vh;
   background-color: blue;
 }
+.modelos__contenedor {
+  gap: 12.5%;
+  width: 100%;
+}
 .modelos__producto__precio {
   font-size: 1.8rem;
   font-weight: 300;

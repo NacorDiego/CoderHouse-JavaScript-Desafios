@@ -34,7 +34,7 @@ function mostrarProductos(array) {
     array.forEach(producto => {
         let { id, marca, modelo, precio, stock } = producto;
         contModelos.innerHTML += `
-            <div id="producto${id}" class="card modelos__producto col-12 col-md-3 mx-3">
+            <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
                 <img src="./img/zapatilla${id}.webp" class="modelos__producto__img mt-5 card-img-top" alt="Imagen de zapatilla ${id}">
                 <div class="card-body">
                     <p class="modelos__producto__precio mt-5 card-text">$${precio}</p>
@@ -126,11 +126,9 @@ cantidadCarrito();
 // mostrarCarrito();
 filtroMarca.addEventListener("change", (e) => {
     e.target.value != " " ? mostrarProductos(filtrar(productos, e.target.value)) : mostrarProductos(productos);
-    console.log('entro al filtro');
 });
 buscador.addEventListener("input", (e) => {
     mostrarProductos(buscar(productos, e.target.value))
-    console.log('Entro al buscador');
 });
 
 // cardContainer.addEventListener("click", e => {
