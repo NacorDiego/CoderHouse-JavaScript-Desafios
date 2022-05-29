@@ -55,7 +55,7 @@
   font-family: "Roboto Flex", sans-serif;
 }
 .nuevoModelo__contFemenino {
-  background-image: url("../../img/femenino.jpg");
+  background-image: url("../../img/femenino4.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -63,14 +63,19 @@
   color: #ffffff;
 }
 .nuevoModelo__contMasculino {
-  background-image: url("../../img/masculino.jpg");
+  background-image: url("../../img/masculino4.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .modelos {
+  font-family: "Roboto Flex", sans-serif;
   min-height: 100vh;
   background-color: blue;
+}
+.modelos__producto__precio {
+  font-size: 1.8rem;
+  font-weight: 300;
 }
 
 .contacto {
@@ -91,19 +96,8 @@
   width: 50px;
 }
 
-.carrito {
-  min-height: 100vh;
-  margin-top: 20vh;
-  font-family: "Roboto Flex", sans-serif;
-}
-.carrito__contCarrito {
-  min-height: 70vh;
-  width: 100%;
-}
-.carrito__contCarrito__span {
-  font-size: 1.7rem;
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.5);
+.filtroBusqueda {
+  height: 5rem;
 }
 
 .producto {

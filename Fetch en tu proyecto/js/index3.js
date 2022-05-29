@@ -26,6 +26,8 @@ let productos = [producto1, producto2, producto3, producto4, producto5, producto
 let contModelos = document.querySelector('#contModelos');
 let cantCarrito = document.querySelector('#cantCarrito');
 let contenedorTabla = document.querySelector('#tablaCarrito');
+let filtroMarca = document.querySelector('#filtrar');
+let buscador = document.querySelector("#buscador");
 
 function mostrarProductos(array) {
     contModelos.innerHTML = "";
@@ -33,10 +35,10 @@ function mostrarProductos(array) {
         let { id, marca, modelo, precio, stock } = producto;
         contModelos.innerHTML += `
             <div id="producto${id}" class="card modelos__producto col-12 col-md-3 mx-3">
-                <img src="./img/zapatilla${id}.webp" class="card-img-top" alt="Imagen de zapatilla ${id}">
+                <img src="./img/zapatilla${id}.webp" class="modelos__producto__img mt-5 card-img-top" alt="Imagen de zapatilla ${id}">
                 <div class="card-body">
+                    <p class="modelos__producto__precio mt-5 card-text">$${precio}</p>
                     <h5 class="card-title">${marca} ${modelo}</h5>
-                    <p class="card-text">$${precio}</p>
                     <p class="card-text">${stock} unidades</p>
                     <button id="botonProducto${id}" class="btn btn-danger modelos__producto__boton">Agregar al carrito</button>
                 </div>
@@ -111,23 +113,25 @@ function isInCart(id) {
 }
 
 function filtrar(array, dato) {
-    return array.filter(e => e.categoria == dato);
+    return array.filter(e => e.marca == dato);
 }
 
 function buscar(array, dato) {
-    let resultado = array.filter(e => e.detalle.toLowerCase().match(dato.toLowerCase()))
+    let resultado = array.filter(e => e.modelo.toLowerCase().match(dato.toLowerCase()))
     return resultado
 }
 
 mostrarProductos(productos);
 cantidadCarrito();
 // mostrarCarrito();
-// document.querySelector("#filtrar").addEventListener("change", (e) => {
-//     e.target.value != " " ? mostrarProductos(filtrar(productos, e.target.value)) : mostrarProductos(productos);
-// });
-// document.querySelector("#buscador").addEventListener("input", (e) => {
-//     mostrarProductos(buscar(productos, e.target.value))
-// });
+filtroMarca.addEventListener("change", (e) => {
+    e.target.value != " " ? mostrarProductos(filtrar(productos, e.target.value)) : mostrarProductos(productos);
+    console.log('entro al filtro');
+});
+buscador.addEventListener("input", (e) => {
+    mostrarProductos(buscar(productos, e.target.value))
+    console.log('Entro al buscador');
+});
 
 // cardContainer.addEventListener("click", e => {
 //     if (e.target.classList.contains("agregar")) {

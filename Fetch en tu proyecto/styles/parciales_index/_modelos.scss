@@ -1,4 +1,15 @@
+@import './variables';
+
 .modelos{
+    font-family: $familia-fuente;
     min-height: 100vh;
     background-color: blue;
+
+    &__producto {
+
+        &__precio {
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+    }
 }
