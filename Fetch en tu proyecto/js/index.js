@@ -1,5 +1,8 @@
+console.log("main.js")
+
 class Producto {
-    constructor(marca,modelo,precio,stock,sexo){
+    constructor(id, marca, modelo, precio, stock, sexo) {
+        this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
@@ -8,110 +11,145 @@ class Producto {
     }
 }
 
-const producto1 = new Producto('Nike','Court Borough ',8500,10,'masculino');
-const producto2 = new Producto('Nike','Air Max',17000,5,'masculino');
-const producto3 = new Producto('Nike','Revolution 6',15000,7,'femenino');
-const producto4 = new Producto('Adidas','Grand Court',10000,9,'masculino');
-const producto5 = new Producto('Adidas','Galaxy 5',12000,7,'femenino');
-const producto6 = new Producto('Adidas','Coreracer',10500,10,'masculino');
-const producto7 = new Producto('Puma','X-Ray 2',16000,5,'masculino');
-const producto8 = new Producto('Puma','Caven',12000,10,'masculino');
-const producto9 = new Producto('Puma','Disperse XT',13000,8,'femenino');
+const producto1 = new Producto('0', 'Nike', 'Court Borough ', 8500, 10, 'masculino');
+const producto2 = new Producto('1', 'Nike', 'Air Max', 17000, 5, 'masculino');
+const producto3 = new Producto('2', 'Nike', 'Revolution 6', 15000, 7, 'femenino');
+const producto4 = new Producto('3', 'Adidas', 'Grand Court', 10000, 9, 'masculino');
+const producto5 = new Producto('4', 'Adidas', 'Galaxy 5', 12000, 7, 'femenino');
+const producto6 = new Producto('5', 'Adidas', 'Coreracer', 10500, 10, 'masculino');
+const producto7 = new Producto('6', 'Puma', 'X-Ray 2', 16000, 5, 'masculino');
+const producto8 = new Producto('7', 'Puma', 'Caven', 12000, 10, 'masculino');
+const producto9 = new Producto('8', 'Puma', 'Disperse XT', 13000, 8, 'femenino');
 
 let productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9];
 
-//Creo el array donde se van a guardar los productos en el carrito
-let carrito = [];
-
-/*Consulto en mi localStorage si existe mi item carrito. Si el carrito no existe me va a devolver null.
-Se crea en esta instancia porque más adelante voy a consultar el carrito.
-Si es TRUE:Si existe el carrito en localStorage, entonces mi carrito va a ser igual que el carrito que está en localStorage. Si tengo productos ahi adentro los voy a recuperar. Como el carrito del storage va a estar en formato json lo voy a tener que convertir con la funcion JSON.parse. Si es resultado es null porque no hay objetos dentro del storage, entonces mediante el nullify '??' le asigno un array vacio.
-Si es FALSE: Si el carrito no existe, lo creo y convierto el objeto a JSON con el stringify.*/
-
-//UTILIZO OPERADOR TERNARIO Y NULLIFY
-(localStorage.getItem('carrito')) ? (carrito = JSON.parse(localStorage.getItem('carrito')) ?? []) : localStorage.setItem('carrito', JSON.stringify(carrito));
-
 let contModelos = document.querySelector('#contModelos');
 let cantCarrito = document.querySelector('#cantCarrito');
+let contenedorTabla = document.querySelector('#tablaCarrito');
+let filtroMarca = document.querySelector('#filtrar');
+let buscador = document.querySelector("#buscador");
 
-//Coloca la cantidad inicial de items en el carrito del localStorage al momento de iniciar la página.
-cantCarrito.innerHTML = `
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span>${carrito.length}</span>
-`
-
-//Creo las cards de cada producto.
-productos.forEach((producto, i) => {
-    //UTILIZO DESESTRUCTURACIÓN
-    let {marca, modelo, precio, stock} = producto;
-    contModelos.innerHTML += `
-        <div id="producto${i}" class="card modelos__producto col-12 col-md-3 mx-3">
-            <img src="./img/zapatilla${i}.webp" class="card-img-top" alt="Imagen de zapatilla ${i}">
-            <div class="card-body">
-                <h5 class="card-title">${marca} ${modelo}</h5>
-                <p class="card-text">$${precio}</p>
-                <p class="card-text">${stock} unidades</p>
-                <button id="botonProducto${i}" class="btn btn-danger modelos__producto__boton">Agregar al carrito</button>
+function mostrarProductos(array) {
+    contModelos.innerHTML = "";
+    array.forEach(producto => {
+        let { id, marca, modelo, precio, stock } = producto;
+        contModelos.innerHTML += `
+            <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
+                <img src="./img/zapatilla${id}.webp" class="modelos__producto__img mt-5 card-img-top" alt="Imagen de zapatilla ${id}">
+                <div class="card-body">
+                    <p class="modelos__producto__precio mt-5 card-text">$${precio}</p>
+                    <h5 class="card-title">${marca} ${modelo}</h5>
+                    <p class="card-text">${stock} unidades</p>
+                    <button id="botonProducto${id}" class="agregar btn btn-danger modelos__producto__boton">Agregar al carrito</button>
+                </div>
             </div>
-        </div>
-    `
-})
-
-
-//Consulto cada botón de cada producto y le agrego un evento escuchador de tipo 'click'. Cuando se clickea un botón retorna el objeto producto correspondiente a ese botón.
-productos.forEach((producto,i) => {
-    document.querySelector(`#botonProducto${i}`).addEventListener('click', () => {
-        
-        //Guardo el producto del array productos en la posición i en 'productoCarrito'.
-        let productoCarrito = productos[i];
-        //Guardo, mediante push en el array carrito, el producto que guarde anteriormente.
-        carrito.push(productoCarrito);
-        //Piso cada uno de los productos en el localStorage. Como lo consulte anteriormente, tengo los datos del localStorage en el carrito.
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        
-        //Actualiza la cantidad de items en el carrito del localStorage cuando se hace click en el botón.
-        cantCarrito.innerHTML = `
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span>${carrito.length}</span>
-        `;
-
-        //Creo alerta con TOASTIFY cuando se agrega un producto al carrito.
-        Toastify({
-            text: `¡${producto.marca} ${producto.modelo} agregadas al carrito!`,
-            duration: 3000,
-            destination: "./pages/carrito.html",
-            newWindow: true,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-              background: "#28B463",
-            },
-            onClick: function(){} // Callback after click
-          }).showToast();
+        `
     });
-})
+}
 
+function mostrarCarrito() {
+    let carrito = capturarStorage();
+    contenedorTabla.innerHTML = "";
+    carrito.forEach(producto => {
+        let { cantidad, marca, modelo, precio } = producto;
+        contenedorTabla.innerHTML += `.
+        <tr>
+            <th scope="row">${cantidad}</th>
+            <td>${marca}</td>
+            <td>${modelo}</td>
+            <td>$${precio}</td>
+            <td><button class="btn btn-danger">x</button></td>
+        </tr>       
+        `
+    });
+}
 
-let formularioC = document.querySelector('#formularioContacto');
+function cantidadCarrito() {
+    //Coloca la cantidad inicial de items en el carrito del localStorage al momento de iniciar la página.
+    let carrito = capturarStorage();
+    cantCarrito.innerHTML = `
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>${carrito.length}</span>
+    `
+}
 
+//Retorna el localStorage en formato objetos o retorna array vacio.
+function capturarStorage() {
+    return JSON.parse(localStorage.getItem("carrito")) || [];
+}
 
-formularioC.addEventListener('submit', (event) => {
-    //Previene que al dar click en el botón del form se refresque la página.
-    event.preventDefault(); 
-    //Guarda los valores de los inputs nombre y mail.
-    let nombre = document.querySelector('#nombre').value;
-    let mail = document.querySelector('#mail').value;
-    
-    //Muestra los valores de los input nombre y mail en una alerta con la librería SweetAlert.
-    Swal.fire(
-        `¡Buen trabajo ${nombre}!`,
-        `¡Te llegará la confirmación a tu correo ${mail}!`,
-        'success'
-    )
-    
-    //Resetea el formulario.
-    formularioC.reset();
+//Setea los elementos del array en el localStorage.
+function guardarStorage(array) {
+    localStorage.setItem("carrito", JSON.stringify(array));
+}
+
+function agregar(idParam) {
+    //entro a agregar
+    let carrito = capturarStorage();
+    if (isInCart(idParam)) {
+        incrementarCantidad(idParam);
+    } else {
+        //Devuelve el objeto que cumple con la condición, en este caso que el id coincida.
+        let productoEncontrado = productos.find(e => e.id == idParam);
+        //Separa todas los atributos del objeto, y crea el atributo cantidad y lo inicializa en 1. Luego pushea el objeto.
+        carrito.push({ ...productoEncontrado, cantidad: 1 });
+        guardarStorage(carrito);
+        // mostrarCarrito(carrito);
+    }
+}
+
+function incrementarCantidad(id) {
+    let carrito = capturarStorage();
+    //Devuelve el indice de la posición donde se encuentra el producto con el id dentro del array carrito.
+    const indice = carrito.findIndex(e => e.id == id);
+    carrito[indice].cantidad++;
+    guardarStorage(carrito);
+    // mostrarCarrito(carrito);
+}
+
+function isInCart(id) {
+    let carrito = capturarStorage();
+    //Devuelve true o false si se cumple la condición. En este caso si hay un objeto con el id igual al id que le paso como param.
+    return carrito.some(e => e.id == id);
+}
+
+//Filtra elementos del array que coincidan con la condición dato.
+function filtrar(array, dato) {
+    //Retorna un nuevo array con los elementos que cumplan en su atributo "marca" con el dato enviado como param.
+    return array.filter(e => e.marca == dato);
+}
+
+//Busca un dato en los elementos del array que se pasa como param.
+function buscar(array, dato) {
+    //En el array se aplica filter(como elemento devolveme el elem en el que coincida el dato enviado en el atributo "modelo" del elem del array).
+    let resultado = array.filter(e => e.modelo.toLowerCase().match(dato.toLowerCase()));
+    return resultado;
+}
+
+//Muestra los productos en la pantalla.
+mostrarProductos(productos);
+//Muestra cantidad de elementos en el carrito del storage.
+cantidadCarrito();
+
+//Escuchador de eventos de tipo "change" que retorna el elemento.
+filtroMarca.addEventListener("change", (elemento) => {
+    //Si el valor del elem al que se hizo targe es distinto de " (vacio) " ENTONCES(V) ejecuta función mostrar productos(con el array que retorna la función filtrar(productos, el valor del elemento al que se hizo target)) SINO(F) ejecuta la función mostrarProductos(productos). 
+    elemento.target.value != " " ? mostrarProductos(filtrar(productos, elemento.target.value)) : mostrarProductos(productos);
+});
+
+//Escuchador de eventos de tipo "input" en #buscador.
+buscador.addEventListener("input", (elemento) => {
+    //Ejecuta la función "mostrarProductos" con lo retornado de la función buscar(productos,valor del elemento al que se hizo target).
+    mostrarProductos(buscar(productos, elemento.target.value));
+});
+
+contModelos.addEventListener("click", elemento => {
+    //Si en el elemento que se le hizo target contiene una clase que se llama "agregar" entonces:
+    if (elemento.target.classList.contains("agregar")) {
+        //Ejecuta la función agregar y se le pasa el id del elemento al que se le hizo target.
+        agregar(elemento.target.id);
+        //Se llama a la función cantidad carrito para que actualice la cantidad de elementos en el carrito.
+        cantidadCarrito();
+    }
 })
 
