@@ -83,18 +83,17 @@ function guardarStorage(array) {
     localStorage.setItem("carrito", JSON.stringify(array));
 }
 
-function agregar(idParam) {
+function agregar(array,idParam) {
     //entro a agregar
     let carrito = capturarStorage();
     if (isInCart(idParam)) {
         incrementarCantidad(idParam);
     } else {
-        //Devuelve el objeto que cumple con la condición, en este caso que el id coincida.
-        let productoEncontrado = productos.find(e => e.id == idParam);
-        //Separa todas los atributos del objeto, y crea el atributo cantidad y lo inicializa en 1. Luego pushea el objeto.
-        carrito.push({ ...productoEncontrado, cantidad: 1 });
+        //Devuelve el objeto del array que cumple con la condición, en este caso que el id coincida, y luego lo guarda en la var.
+        let productoEncontrado = array.find(e => e.id == idParam);
+        carrito.push(productoEncontrado);
         guardarStorage(carrito);
-        // mostrarCarrito(carrito);
+        console.log(carrito);
     }
 }
 
