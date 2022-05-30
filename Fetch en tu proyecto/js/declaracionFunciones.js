@@ -29,6 +29,7 @@ let cantCarrito = document.querySelector('#cantCarrito');
 let contenedorTabla = document.querySelector('#tablaCarrito');
 let filtroMarca = document.querySelector('#filtrar');
 let buscador = document.querySelector("#buscador");
+let formularioC = document.querySelector('#formularioContacto');
 
 function mostrarProductos(array) {
     contModelos.innerHTML = "";
@@ -88,15 +89,30 @@ function guardarStorage(array) {
     localStorage.setItem("carrito", JSON.stringify(array));
 }
 
-function agregar(array,idParam) {
+function agregar(array, idParam) {
     //entro a agregar
     let carrito = capturarStorage();
+    //Busca en el array el producto que coincide con el idParam.
+    let productoEncontrado = array.find(e => e.id == idParam);
+    //Creo alerta con TOASTIFY cuando se agrega un producto al carrito.
+    Toastify({
+        text: `¡${productoEncontrado.marca} ${productoEncontrado.modelo} agregadas al carrito!`,
+        duration: 3000,
+        destination: "./pages/carrito.html",
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "#28B463",
+        },
+        onClick: function () { } // Callback after click
+    }).showToast();
     if (isInCart(idParam)) {
         incrementarCantidad(idParam);
     } else {
         //Devuelve el objeto del array que cumple con la condición, en este caso que el id coincida, y luego lo guarda en la var.
-        let productoEncontrado = array.find(e => e.id == idParam);
-        //Aumenta en 1 al atributo cantEnCarrito, el cual describe cuantas veces está el artículo en el carrito.
         productoEncontrado.cantEnCarrito = 1;
         carrito.push(productoEncontrado);
         guardarStorage(carrito);
@@ -128,4 +144,23 @@ function buscar(array, dato) {
     //En el array se aplica filter(como elemento devolveme el elem en el que coincida el dato enviado en el atributo "modelo" del elem del array).
     let resultado = array.filter(e => e.modelo.toLowerCase().match(dato.toLowerCase()));
     return resultado;
+}
+
+//Captura los datos ingresados en el form y los envía como un SweetAlert.
+function capturarForm (event) {
+    //Previene que al dar click en el botón del form se refresque la página.
+    event.preventDefault(); 
+    //Guarda los valores de los inputs nombre y mail.
+    let nombre = document.querySelector('#nombre').value;
+    let mail = document.querySelector('#mail').value;
+    
+    //Muestra los valores de los input nombre y mail en una alerta con la librería SweetAlert.
+    Swal.fire(
+        `¡Buen trabajo ${nombre}!`,
+        `¡Te llegará la confirmación a tu correo ${mail}!`,
+        'success'
+    )
+    
+    //Resetea el formulario.
+    formularioC.reset();
 }
