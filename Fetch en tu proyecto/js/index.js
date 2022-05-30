@@ -24,7 +24,7 @@ contModelos.addEventListener("click", elemento => {
         let idBoton = elemento.target.id;
         //Substraigo del string el numero en el ID y lo guardo en la variable.
         let numID = idBoton.replace(/[^0-9]/ig,"");
-        console.log(numID);
+        // console.log(numID);
         //Paso el array productos y el NUMERO en el ID del botón, para buscar el objeto del array que tenga el mismo ID que el que paso.
         agregar(productos,numID);
         // console.log('elemento targe id es: '+elemento.target.id)

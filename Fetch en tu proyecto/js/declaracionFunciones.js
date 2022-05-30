@@ -1,25 +1,26 @@
 console.log("declaracionFunciones.js")
 
 class Producto {
-    constructor(id, marca, modelo, precio, stock, sexo) {
+    constructor(id, marca, modelo, precio, stock, sexo, cantidad) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
         this.stock = stock;
         this.sexo = sexo;
+        this.cantEnCarrito = cantidad;
     }
 }
 
-const producto1 = new Producto('0', 'Nike', 'Court Borough ', 8500, 10, 'masculino');
-const producto2 = new Producto('1', 'Nike', 'Air Max', 17000, 5, 'masculino');
-const producto3 = new Producto('2', 'Nike', 'Revolution 6', 15000, 7, 'femenino');
-const producto4 = new Producto('3', 'Adidas', 'Grand Court', 10000, 9, 'masculino');
-const producto5 = new Producto('4', 'Adidas', 'Galaxy 5', 12000, 7, 'femenino');
-const producto6 = new Producto('5', 'Adidas', 'Coreracer', 10500, 10, 'masculino');
-const producto7 = new Producto('6', 'Puma', 'X-Ray 2', 16000, 5, 'masculino');
-const producto8 = new Producto('7', 'Puma', 'Caven', 12000, 10, 'masculino');
-const producto9 = new Producto('8', 'Puma', 'Disperse XT', 13000, 8, 'femenino');
+const producto1 = new Producto('0', 'Nike', 'Court Borough ', 8500, 10, 'masculino', 0);
+const producto2 = new Producto('1', 'Nike', 'Air Max', 17000, 5, 'masculino', 0);
+const producto3 = new Producto('2', 'Nike', 'Revolution 6', 15000, 7, 'femenino', 0);
+const producto4 = new Producto('3', 'Adidas', 'Grand Court', 10000, 9, 'masculino', 0);
+const producto5 = new Producto('4', 'Adidas', 'Galaxy 5', 12000, 7, 'femenino', 0);
+const producto6 = new Producto('5', 'Adidas', 'Coreracer', 10500, 10, 'masculino', 0);
+const producto7 = new Producto('6', 'Puma', 'X-Ray 2', 16000, 5, 'masculino', 0);
+const producto8 = new Producto('7', 'Puma', 'Caven', 12000, 10, 'masculino', 0);
+const producto9 = new Producto('8', 'Puma', 'Disperse XT', 13000, 8, 'femenino', 0);
 
 let productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9];
 
@@ -51,10 +52,10 @@ function mostrarCarrito() {
     let carrito = capturarStorage();
     contenedorTabla.innerHTML = "";
     carrito.forEach(producto => {
-        let { cantidad, marca, modelo, precio } = producto;
+        let { marca, modelo, precio, cantEnCarrito } = producto;
         contenedorTabla.innerHTML += `.
         <tr>
-            <th scope="row">${cantidad}</th>
+            <th scope="row">${cantEnCarrito}</th>
             <td>${marca}</td>
             <td>${modelo}</td>
             <td>$${precio}</td>
@@ -67,9 +68,13 @@ function mostrarCarrito() {
 function cantidadCarrito() {
     //Coloca la cantidad inicial de items en el carrito del localStorage al momento de iniciar la página.
     let carrito = capturarStorage();
+    let cantProdEnCarrito = 0;
+    carrito.forEach(producto => {
+        cantProdEnCarrito = cantProdEnCarrito + producto.cantEnCarrito;
+    })
     cantCarrito.innerHTML = `
         <i class="fa-solid fa-cart-shopping"></i>
-        <span>${carrito.length}</span>
+        <span>${cantProdEnCarrito}</span>
     `
 }
 
@@ -91,9 +96,10 @@ function agregar(array,idParam) {
     } else {
         //Devuelve el objeto del array que cumple con la condición, en este caso que el id coincida, y luego lo guarda en la var.
         let productoEncontrado = array.find(e => e.id == idParam);
+        //Aumenta en 1 al atributo cantEnCarrito, el cual describe cuantas veces está el artículo en el carrito.
+        productoEncontrado.cantEnCarrito = 1;
         carrito.push(productoEncontrado);
         guardarStorage(carrito);
-        console.log(carrito);
     }
 }
 
@@ -101,9 +107,8 @@ function incrementarCantidad(id) {
     let carrito = capturarStorage();
     //Devuelve el indice de la posición donde se encuentra el producto con el id dentro del array carrito.
     const indice = carrito.findIndex(e => e.id == id);
-    carrito[indice].cantidad++;
+    carrito[indice].cantEnCarrito++;
     guardarStorage(carrito);
-    // mostrarCarrito(carrito);
 }
 
 function isInCart(id) {
