@@ -84,6 +84,7 @@ function guardarStorage(array) {
 }
 
 function agregar(idParam) {
+    //entro a agregar
     let carrito = capturarStorage();
     if (isInCart(idParam)) {
         incrementarCantidad(idParam);
@@ -93,7 +94,7 @@ function agregar(idParam) {
         //Separa todas los atributos del objeto, y crea el atributo cantidad y lo inicializa en 1. Luego pushea el objeto.
         carrito.push({ ...productoEncontrado, cantidad: 1 });
         guardarStorage(carrito);
-        mostrarCarrito(carrito);
+        // mostrarCarrito(carrito);
     }
 }
 
@@ -103,7 +104,7 @@ function incrementarCantidad(id) {
     const indice = carrito.findIndex(e => e.id == id);
     carrito[indice].cantidad++;
     guardarStorage(carrito);
-    mostrarCarrito(carrito);
+    // mostrarCarrito(carrito);
 }
 
 function isInCart(id) {
@@ -112,28 +113,43 @@ function isInCart(id) {
     return carrito.some(e => e.id == id);
 }
 
+//Filtra elementos del array que coincidan con la condición dato.
 function filtrar(array, dato) {
+    //Retorna un nuevo array con los elementos que cumplan en su atributo "marca" con el dato enviado como param.
     return array.filter(e => e.marca == dato);
 }
 
+//Busca un dato en los elementos del array que se pasa como param.
 function buscar(array, dato) {
-    let resultado = array.filter(e => e.modelo.toLowerCase().match(dato.toLowerCase()))
-    return resultado
+    //En el array se aplica filter(como elemento devolveme el elem en el que coincida el dato enviado en el atributo "modelo" del elem del array).
+    let resultado = array.filter(e => e.modelo.toLowerCase().match(dato.toLowerCase()));
+    return resultado;
 }
 
+//Muestra los productos en la pantalla.
 mostrarProductos(productos);
+//Muestra cantidad de elementos en el carrito del storage.
 cantidadCarrito();
-// mostrarCarrito();
-filtroMarca.addEventListener("change", (e) => {
-    e.target.value != " " ? mostrarProductos(filtrar(productos, e.target.value)) : mostrarProductos(productos);
-});
-buscador.addEventListener("input", (e) => {
-    mostrarProductos(buscar(productos, e.target.value))
+
+//Escuchador de eventos de tipo "change" que retorna el elemento.
+filtroMarca.addEventListener("change", (elemento) => {
+    //Si el valor del elem al que se hizo targe es distinto de " (vacio) " ENTONCES(V) ejecuta función mostrar productos(con el array que retorna la función filtrar(productos, el valor del elemento al que se hizo target)) SINO(F) ejecuta la función mostrarProductos(productos). 
+    elemento.target.value != " " ? mostrarProductos(filtrar(productos, elemento.target.value)) : mostrarProductos(productos);
 });
 
-contModelos.addEventListener("click", e => {
-    if (e.target.classList.contains("agregar")) {
-        agregar(e.target.id)
-        console.log('capturo el evento')
+//Escuchador de eventos de tipo "input" en #buscador.
+buscador.addEventListener("input", (elemento) => {
+    //Ejecuta la función "mostrarProductos" con lo retornado de la función buscar(productos,valor del elemento al que se hizo target).
+    mostrarProductos(buscar(productos, elemento.target.value));
+});
+
+contModelos.addEventListener("click", elemento => {
+    //Si en el elemento que se le hizo target contiene una clase que se llama "agregar" entonces:
+    if (elemento.target.classList.contains("agregar")) {
+        //Ejecuta la función agregar y se le pasa el id del elemento al que se le hizo target.
+        agregar(elemento.target.id);
+        //Se llama a la función cantidad carrito para que actualice la cantidad de elementos en el carrito.
+        cantidadCarrito();
     }
 })
+
