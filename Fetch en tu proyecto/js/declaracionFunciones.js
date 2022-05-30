@@ -1,5 +1,6 @@
 console.log("declaracionFunciones.js")
 
+//Declaro la clase Producto.
 class Producto {
     constructor(id, marca, modelo, precio, stock, sexo, cantidad) {
         this.id = id;
@@ -12,6 +13,7 @@ class Producto {
     }
 }
 
+//Instancio los objetos Producto.
 const producto1 = new Producto('0', 'Nike', 'Court Borough ', 8500, 10, 'masculino', 0);
 const producto2 = new Producto('1', 'Nike', 'Air Max', 17000, 5, 'masculino', 0);
 const producto3 = new Producto('2', 'Nike', 'Revolution 6', 15000, 7, 'femenino', 0);
@@ -22,8 +24,10 @@ const producto7 = new Producto('6', 'Puma', 'X-Ray 2', 16000, 5, 'masculino', 0)
 const producto8 = new Producto('7', 'Puma', 'Caven', 12000, 10, 'masculino', 0);
 const producto9 = new Producto('8', 'Puma', 'Disperse XT', 13000, 8, 'femenino', 0);
 
+//Declaro e inicializo el array de productos.
 let productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9];
 
+//Capturo los elementos del DOM que se usaran de manera global.
 let contModelos = document.querySelector('#contModelos');
 let cantCarrito = document.querySelector('#cantCarrito');
 let contenedorTabla = document.querySelector('#tablaCarrito');
@@ -31,9 +35,12 @@ let filtroMarca = document.querySelector('#filtrar');
 let buscador = document.querySelector("#buscador");
 let formularioC = document.querySelector('#formularioContacto');
 
+//Muestra los objetos del array en formato de cards en la sección elegida.
 function mostrarProductos(array) {
+    //Limpio la sección para asegurarme de que esté vacia al momento de cargarla.
     contModelos.innerHTML = "";
     array.forEach(producto => {
+        //Desestructuro el objeto en variables individuales.
         let { id, marca, modelo, precio, stock } = producto;
         contModelos.innerHTML += `
             <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
@@ -49,8 +56,10 @@ function mostrarProductos(array) {
     });
 }
 
+//Muestra los elementos del carrito en una tabla en la sección elegida.
 function mostrarCarrito() {
     let carrito = capturarStorage();
+    //Vacio la sección.
     contenedorTabla.innerHTML = "";
     carrito.forEach(producto => {
         let { marca, modelo, precio, cantEnCarrito } = producto;
@@ -66,6 +75,7 @@ function mostrarCarrito() {
     });
 }
 
+//Coloca el numero de elementos dentro del carrito, en el nav.
 function cantidadCarrito() {
     //Coloca la cantidad inicial de items en el carrito del localStorage al momento de iniciar la página.
     let carrito = capturarStorage();
@@ -89,6 +99,7 @@ function guardarStorage(array) {
     localStorage.setItem("carrito", JSON.stringify(array));
 }
 
+//Agrega elementos en el carrito, sea que agrega el objeto o solo le aumenta la cantidad de veces que ese objeto está en el carrito.
 function agregar(array, idParam) {
     //entro a agregar
     let carrito = capturarStorage();
@@ -109,6 +120,8 @@ function agregar(array, idParam) {
         },
         onClick: function () { } // Callback after click
     }).showToast();
+    
+    //Controla si el artículo está ya en el carrito o no mediante condicional.
     if (isInCart(idParam)) {
         incrementarCantidad(idParam);
     } else {
@@ -119,6 +132,7 @@ function agregar(array, idParam) {
     }
 }
 
+//Incrementa la cantidad en la variable cantEnCarrito del objeto correspondiente al id.
 function incrementarCantidad(id) {
     let carrito = capturarStorage();
     //Devuelve el indice de la posición donde se encuentra el producto con el id dentro del array carrito.

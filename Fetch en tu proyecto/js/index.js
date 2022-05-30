@@ -17,6 +17,7 @@ buscador.addEventListener("input", (elemento) => {
     mostrarProductos(buscar(productos, elemento.target.value));
 });
 
+//Controla todos los botones de contModelos mediante un escuchador de eventos click.
 contModelos.addEventListener("click", elemento => {
     //Si en el boton que se le hizo target contiene una clase que se llama "agregar" entonces:
     if (elemento.target.classList.contains("agregar")) {
@@ -31,6 +32,7 @@ contModelos.addEventListener("click", elemento => {
     }
 })
 
+//Controla el formulario mediante un escuchador de eventos submit.
 formularioC.addEventListener('submit', (event) => {
     capturarForm(event);
 })
