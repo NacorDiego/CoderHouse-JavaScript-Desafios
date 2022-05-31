@@ -55,7 +55,7 @@
   font-family: "Roboto Flex", sans-serif;
 }
 .nuevoModelo__contFemenino {
-  background-image: url("../../img/femenino4.jpg");
+  background-image: url("../../img/femenino.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -63,7 +63,7 @@
   color: #ffffff;
 }
 .nuevoModelo__contMasculino {
-  background-image: url("../../img/masculino4.jpg");
+  background-image: url("../../img/masculino.jpg");
   background-size: cover;
   background-position: center;
 }
