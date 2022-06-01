@@ -14,7 +14,7 @@ class Producto {
 }
 
 //Instancio los objetos Producto.
-const producto1 = new Producto('0', 'Nike', 'Court Borough ', 8500, 10, 'masculino', 0);
+const producto1 = new Producto('0', 'Nike', 'Court Borough', 8500, 10, 'masculino', 0);
 const producto2 = new Producto('1', 'Nike', 'Air Max', 17000, 5, 'masculino', 0);
 const producto3 = new Producto('2', 'Nike', 'Revolution 6', 15000, 7, 'femenino', 0);
 const producto4 = new Producto('3', 'Adidas', 'Grand Court', 10000, 9, 'masculino', 0);
