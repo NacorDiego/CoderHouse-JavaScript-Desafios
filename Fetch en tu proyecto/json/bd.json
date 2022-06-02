@@ -1,85 +1,83 @@
-{
-    "productos" : [
-        {
-            "id" : 0,
-            "marca" : "Nike",
-            "modelo" : "Court Borough",
-            "precio" : 8500,
-            "stock" : 10,
-            "sexo" : "masculino",
-            "cantEnCarrito" : 0
-        },
-        {
-            "id" : 2,
-            "marca" : "Nike",
-            "modelo" : "Air Max",
-            "precio" : 17000,
-            "stock" : 5,
-            "sexo" : "masculino",
-            "cantEnCarrito" : 0
-        },
-        {
-            "id" : 3,
-            "marca" : "Nike",
-            "modelo" : "Revolution 6",
-            "precio" : 15000,
-            "stock" : 7,
-            "sexo" : "femenino",
-            "cantEnCarrito" : 0
-        },
-        {
-            "id" : 4,
-            "marca" : "Adidas",
-            "modelo" : "Grand Court",
-            "precio" : 10000,
-            "stock" : 9,
-            "sexo" : "masculino",
-            "cantEnCarrito" : 0
-        },
-        {
-            "id" : 5,
-            "marca" : "Adidas",
-            "modelo" : "Galaxy 5",
-            "precio" : 12000,
-            "stock" : 7,
-            "sexo" : "femenino",
-            "cantEnCarrito" : 0
-        },
-        {
-            "id" : 6,
-            "marca" : "Adidas",
-            "modelo" : "Coreracer",
-            "precio" : 10500,
-            "stock" : 10,
-            "sexo" : "masculino",
-            "cantEnCarrito" : 0
-        },
-        {
-            "id" : 7,
-            "marca" : "Puma",
-            "modelo" : "X-Ray 2",
-            "precio" : 16000,
-            "stock" : 5,
-            "sexo" : "masculino",
-            "cantEnCarrito" : 0
-        },
-        {
-            "id" : 8,
-            "marca" : "Puma",
-            "modelo" : "Caven",
-            "precio" : 12000,
-            "stock" : 10,
-            "sexo" : "masculino",
-            "cantEnCarrito" : 0
-        },
-        {
-            "id" : 8,
-            "marca" : "Puma",
-            "modelo" : "Disperse XT",
-            "precio" : 13000,
-            "stock" : 8,
-            "sexo" : "masculino",
-            "cantEnCarrito" : 0
-        }
-    ]
-}
+[
+    {
+        "id": 0,
+        "marca": "Nike",
+        "modelo": "Court Borough",
+        "precio": 8500,
+        "stock": 10,
+        "sexo": "masculino",
+        "cantEnCarrito": 0
+    },
+    {
+        "id": 2,
+        "marca": "Nike",
+        "modelo": "Air Max",
+        "precio": 17000,
+        "stock": 5,
+        "sexo": "masculino",
+        "cantEnCarrito": 0
+    },
+    {
+        "id": 3,
+        "marca": "Nike",
+        "modelo": "Revolution 6",
+        "precio": 15000,
+        "stock": 7,
+        "sexo": "femenino",
+        "cantEnCarrito": 0
+    },
+    {
+        "id": 4,
+        "marca": "Adidas",
+        "modelo": "Grand Court",
+        "precio": 10000,
+        "stock": 9,
+        "sexo": "masculino",
+        "cantEnCarrito": 0
+    },
+    {
+        "id": 5,
+        "marca": "Adidas",
+        "modelo": "Galaxy 5",
+        "precio": 12000,
+        "stock": 7,
+        "sexo": "femenino",
+        "cantEnCarrito": 0
+    },
+    {
+        "id": 6,
+        "marca": "Adidas",
+        "modelo": "Coreracer",
+        "precio": 10500,
+        "stock": 10,
+        "sexo": "masculino",
+        "cantEnCarrito": 0
+    },
+    {
+        "id": 7,
+        "marca": "Puma",
+        "modelo": "X-Ray 2",
+        "precio": 16000,
+        "stock": 5,
+        "sexo": "masculino",
+        "cantEnCarrito": 0
+    },
+    {
+        "id": 8,
+        "marca": "Puma",
+        "modelo": "Caven",
+        "precio": 12000,
+        "stock": 10,
+        "sexo": "masculino",
+        "cantEnCarrito": 0
+    },
+    {
+        "id": 8,
+        "marca": "Puma",
+        "modelo": "Disperse XT",
+        "precio": 13000,
+        "stock": 8,
+        "sexo": "masculino",
+        "cantEnCarrito": 0
+    }
+]
