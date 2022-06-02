@@ -119,36 +119,41 @@ function guardarStorage(array) {
 }
 
 //Agrega elementos en el carrito, sea que agrega el objeto o solo le aumenta la cantidad de veces que ese objeto está en el carrito.
-function agregar(array, idParam) {
+function agregar(idParam) {
     //entro a agregar
     let carrito = capturarStorage();
-    //Busca en el array el producto que coincide con el idParam.
-    let productoEncontrado = array.find(e => e.id == idParam);
-    //Creo alerta con TOASTIFY cuando se agrega un producto al carrito.
-    Toastify({
-        text: `¡${productoEncontrado.marca} ${productoEncontrado.modelo} agregadas al carrito!`,
-        duration: 3000,
-        destination: "./pages/carrito.html",
-        newWindow: true,
-        close: true,
-        gravity: "bottom", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-            background: "#28B463",
-        },
-        onClick: function () { } // Callback after click
-    }).showToast();
 
-    //Controla si el artículo está ya en el carrito o no mediante condicional.
-    if (isInCart(idParam)) {
-        incrementarCantidad(idParam);
-    } else {
-        //Devuelve el objeto del array que cumple con la condición, en este caso que el id coincida, y luego lo guarda en la var.
-        productoEncontrado.cantEnCarrito = 1;
-        carrito.push(productoEncontrado);
-        guardarStorage(carrito);
-    }
+    fetch('../json/bd.json')
+    .then(respuesta => respuesta.json())
+    .then(productos => {
+        //Busca en el array el producto que coincide con el idParam.
+        let productoEncontrado = productos.find(e => e.id == idParam);
+        //Creo alerta con TOASTIFY cuando se agrega un producto al carrito.
+        Toastify({
+            text: `¡${productoEncontrado.marca} ${productoEncontrado.modelo} agregadas al carrito!`,
+            duration: 3000,
+            destination: "./pages/carrito.html",
+            newWindow: true,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "#28B463",
+            },
+            onClick: function () { } // Callback after click
+        }).showToast();
+    
+        //Controla si el artículo está ya en el carrito o no mediante condicional.
+        if (isInCart(idParam)) {
+            incrementarCantidad(idParam);
+        } else {
+            //Devuelve el objeto del array que cumple con la condición, en este caso que el id coincida, y luego lo guarda en la var.
+            productoEncontrado.cantEnCarrito = 1;
+            carrito.push(productoEncontrado);
+            guardarStorage(carrito);
+        }        
+    })
 }
 
 //Incrementa la cantidad en la variable cantEnCarrito del objeto correspondiente al id.
