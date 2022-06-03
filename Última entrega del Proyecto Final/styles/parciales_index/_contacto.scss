@@ -1,0 +1,16 @@
+@import './variables';
+
+.contacto {
+    min-height: 60vh;
+    font-family:$familia-fuente;
+
+    &__titulo {
+        font-size: 3rem;
+        font-weight: 300;
+    }
+    &__formulario {
+        font-size: 1.2rem;
+        font-weight: 200;
+        width: 80%;
+    }
+}

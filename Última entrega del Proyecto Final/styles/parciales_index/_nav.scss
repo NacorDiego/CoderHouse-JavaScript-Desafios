@@ -1,0 +1,12 @@
+@import './variables';
+
+.navegacion {
+    &__logo {
+        width: 80px;
+    }
+    &__link {
+        font-size: 1.35rem;
+        font-family: $familia-fuente;
+        font-weight: 300;    
+    }
+}

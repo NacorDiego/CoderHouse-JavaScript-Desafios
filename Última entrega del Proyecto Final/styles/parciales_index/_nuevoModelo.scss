@@ -1,0 +1,19 @@
+.nuevoModelo {
+    min-height: 50vh;
+    font-family: $familia-fuente;
+
+    &__contFemenino {
+        background-image: url('../../img/femenino.jpg');
+        background-size: cover;
+        background-position: center;
+        
+        &__titulo {
+            color: #ffffff;
+        }
+    }
+    &__contMasculino {
+        background-image: url('../../img/masculino.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+}
