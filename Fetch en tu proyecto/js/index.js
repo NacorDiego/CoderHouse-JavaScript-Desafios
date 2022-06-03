@@ -1,7 +1,5 @@
 console.log("index.js");
 
-// //Muestra los productos en la pantalla.
-// mostrarProductos(productos);
 //Muestra cantidad de elementos en el carrito del storage.
 cantidadCarrito();
 

@@ -1,32 +1,5 @@
 console.log("declaracionFunciones.js")
 
-// //Declaro la clase Producto.
-// class Producto {
-//     constructor(id, marca, modelo, precio, stock, sexo, cantidad) {
-//         this.id = id;
-//         this.marca = marca;
-//         this.modelo = modelo;
-//         this.precio = precio;
-//         this.stock = stock;
-//         this.sexo = sexo;
-//         this.cantEnCarrito = cantidad;
-//     }
-// }
-
-// //Instancio los objetos Producto.
-// const producto1 = new Producto('0', 'Nike', 'Court Borough', 8500, 10, 'masculino', 0);
-// const producto2 = new Producto('1', 'Nike', 'Air Max', 17000, 5, 'masculino', 0);
-// const producto3 = new Producto('2', 'Nike', 'Revolution 6', 15000, 7, 'femenino', 0);
-// const producto4 = new Producto('3', 'Adidas', 'Grand Court', 10000, 9, 'masculino', 0);
-// const producto5 = new Producto('4', 'Adidas', 'Galaxy 5', 12000, 7, 'femenino', 0);
-// const producto6 = new Producto('5', 'Adidas', 'Coreracer', 10500, 10, 'masculino', 0);
-// const producto7 = new Producto('6', 'Puma', 'X-Ray 2', 16000, 5, 'masculino', 0);
-// const producto8 = new Producto('7', 'Puma', 'Caven', 12000, 10, 'masculino', 0);
-// const producto9 = new Producto('8', 'Puma', 'Disperse XT', 13000, 8, 'femenino', 0);
-
-// //Declaro e inicializo el array de productos.
-// let productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9];
-
 //Capturo los elementos del DOM que se usaran de manera global.
 let contModelos = document.querySelector('#contModelos');
 let cantCarrito = document.querySelector('#cantCarrito');
@@ -35,27 +8,7 @@ let filtroMarca = document.querySelector('#filtrar');
 let buscador = document.querySelector("#buscador");
 let formularioC = document.querySelector('#formularioContacto');
 
-// //Muestra los objetos del array en formato de cards en la sección elegida.
-// function mostrarProductos(array) {
-//     //Limpio la sección para asegurarme de que esté vacia al momento de cargarla.
-//     contModelos.innerHTML = "";
-//     array.forEach(producto => {
-//         //Desestructuro el objeto en variables individuales.
-//         let { id, marca, modelo, precio, stock } = producto;
-//         contModelos.innerHTML += `
-//             <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
-//                 <img src="./img/zapatilla${id}.webp" class="modelos__producto__img mt-5 card-img-top" alt="Imagen de zapatilla ${id}">
-//                 <div class="card-body">
-//                     <p class="modelos__producto__precio mt-5 card-text">$${precio}</p>
-//                     <h5 class="card-title">${marca} ${modelo}</h5>
-//                     <p class="card-text">${stock} unidades</p>
-//                     <button id="botonProducto${id}" class="agregar btn btn-danger modelos__producto__boton">Agregar al carrito</button>
-//                 </div>
-//             </div>
-//         `
-//     });
-// }
-
+//Muestra los productos de las bd.json en el html en formato de cards.
 fetch('../json/bd.json')
 .then(respuesta => respuesta.json())
 .then(productos => {
