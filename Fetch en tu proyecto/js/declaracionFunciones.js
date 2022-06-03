@@ -84,11 +84,11 @@ function mostrarCarrito() {
         let { marca, modelo, precio, cantEnCarrito } = producto;
         contenedorTabla.innerHTML += `.
         <tr>
-            <th scope="row">${cantEnCarrito}</th>
-            <td>${marca}</td>
-            <td>${modelo}</td>
-            <td>$${precio}</td>
-            <td><button class="btn btn-danger">x</button></td>
+        <th scope="row">${cantEnCarrito}</th>
+        <td>${marca}</td>
+        <td>${modelo}</td>
+        <td>$${precio}</td>
+        <td><button class="btn btn-danger">x</button></td>
         </tr>       
         `
     });
@@ -152,7 +152,10 @@ function agregar(idParam) {
             productoEncontrado.cantEnCarrito = 1;
             carrito.push(productoEncontrado);
             guardarStorage(carrito);
-        }        
+        }
+        
+        //Llamo acá a esta función debido a que la promesa Fetch es asincrónica, y necesito que se ejecute luego de que resuelva la promesa.
+        cantidadCarrito();
     })
 }
 

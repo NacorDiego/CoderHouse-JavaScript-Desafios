@@ -27,8 +27,6 @@ contModelos.addEventListener("click", elemento => {
         let numID = idBoton.replace(/[^0-9]/ig,"");
         //Paso el array productos y el NUMERO en el ID del botón, para buscar el objeto del array que tenga el mismo ID que el que paso.
         agregar(numID);
-        //Se llama a la función cantidad carrito para que actualice la cantidad de elementos en el carrito.
-        cantidadCarrito();
     }
 })
 
