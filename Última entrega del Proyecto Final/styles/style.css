@@ -129,6 +129,14 @@
   min-height: 70vh;
   width: 100%;
 }
+.carrito__contCarrito__h5 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+.carrito__contCarrito__precio {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
 .carrito__contCarrito__span {
   font-size: 1.7rem;
   font-weight: 300;

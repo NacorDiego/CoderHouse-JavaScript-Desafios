@@ -3,12 +3,15 @@ console.log("declaracionFunciones.js")
 //Capturo los elementos del DOM que se usaran de manera global.
 let contModelos = document.querySelector('#contModelos');
 let cantCarrito = document.querySelector('#cantCarrito');
-let contenedorTabla = document.querySelector('#tablaCarrito');
+// let contenedorTabla = document.querySelector('#tablaCarrito');
+let contArticulos = document.querySelector('#contArticulos');
 let filtroMarca = document.querySelector('#filtrar');
 let buscador = document.querySelector("#buscador");
 let formularioC = document.querySelector('#formularioContacto');
 
 //Muestra los productos de las bd.json en el html en formato de cards.
+let productos
+
 fetch('../json/bd.json')
 .then(respuesta => respuesta.json())
 .then(productos => {
@@ -28,21 +31,47 @@ fetch('../json/bd.json')
     })
 })
 
+// //Muestra los elementos del carrito en una tabla en la sección elegida.
+// function mostrarCarrito() {
+//     let carrito = capturarStorage();
+//     //Vacio la sección.
+//     contenedorTabla.innerHTML = "";
+//     carrito.forEach(producto => {
+//         let { marca, modelo, precio, cantEnCarrito } = producto;
+//         contenedorTabla.innerHTML += `.
+//         <tr>
+//         <th scope="row">${cantEnCarrito}</th>
+//         <td>${marca}</td>
+//         <td>${modelo}</td>
+//         <td>$${precio}</td>
+//         <td><button class="btn btn-danger">x</button></td>
+//         </tr>       
+//         `
+//     });
+// }
+
 //Muestra los elementos del carrito en una tabla en la sección elegida.
 function mostrarCarrito() {
     let carrito = capturarStorage();
     //Vacio la sección.
-    contenedorTabla.innerHTML = "";
+    divCarrito.innerHTML = "";
     carrito.forEach(producto => {
-        let { marca, modelo, precio, cantEnCarrito } = producto;
-        contenedorTabla.innerHTML += `.
-        <tr>
-        <th scope="row">${cantEnCarrito}</th>
-        <td>${marca}</td>
-        <td>${modelo}</td>
-        <td>$${precio}</td>
-        <td><button class="btn btn-danger">x</button></td>
-        </tr>       
+        let { id, marca, modelo, precio, cantEnCarrito } = producto;
+        contArticulos.innerHTML += `
+            <div id="prodCarrito${id}" class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="./img/zapatilla${id}.webp" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">${marca} ${modelo}</h5>
+                            <p class="card-text">$${precio}</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>              
+                        </div>
+                    </div>
+                </div>
+            </div>
         `
     });
 }

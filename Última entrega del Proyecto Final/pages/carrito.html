@@ -66,19 +66,27 @@
 
     <section class="container carrito">
         <div id="divCarrito"
-            class="carrito__contCarrito col-12 bg-light shadow-sm rounded-4 border border-opacity-10 border-dark d-flex justify-content-center align-items-center">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Modelo</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaCarrito"></tbody>
-            </table>
+            class="carrito__contCarrito bg-light shadow-sm rounded-4 border border-opacity-10 border-dark d-flex justify-content-center align-items-center row">
+            <div id="prodCarrito" class="carrito__contCarrito card mb-3 col-11">
+                <div class="d-flex flex-row">
+                    <div class="col-md-4">
+                        <img src="../img/zapatilla2.webp" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-body">
+                            <h5 class="carrito__contCarrito__h5 card-title">HOLA HOLA</h5>
+                            <p class="carrito__contCarrito__precio card-text">$2000</p>                            
+                        </div>
+                    </div>
+                    <div class="col-md-2 d-flex flex-column justify-content-center gap-3">                        
+                        <button class="btn btn-outline-danger mx-3">+</button>
+                        <button class="btn btn-outline-danger mx-3">-</button>            
+                    </div>
+                    <div class="col-md-1 d-flex flex-row justify-content-center align-items-center">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

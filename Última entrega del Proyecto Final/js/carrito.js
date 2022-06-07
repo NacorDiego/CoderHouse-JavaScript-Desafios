@@ -4,5 +4,5 @@
 
 console.log('carrito.js')
 
-mostrarCarrito();
+// mostrarCarrito();
 cantidadCarrito();
