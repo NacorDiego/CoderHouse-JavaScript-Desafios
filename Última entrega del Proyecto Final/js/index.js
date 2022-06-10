@@ -12,7 +12,11 @@ filtroMarca.addEventListener("change", (elemento) => {
 //Escuchador de eventos de tipo "input" en #buscador.
 buscador.addEventListener("input", (elemento) => {
     //Ejecuta la función "mostrarProductos" con lo retornado de la función buscar(productos,valor del elemento al que se hizo target).
-    mostrarProductos(buscar(productos, elemento.target.value));
+    fetch('../json/bd.json')
+        .then(respuesta => respuesta.json())
+        .then(productos => {
+            mostrarProductos(buscar(productos, elemento.target.value));
+        })
 });
 
 //Controla todos los botones de contModelos mediante un escuchador de eventos click.
@@ -22,7 +26,7 @@ contModelos.addEventListener("click", elemento => {
         //Guardo el id del botón targeteado en string.
         let idBoton = elemento.target.id;
         //Substraigo del string el numero en el ID y lo guardo en la variable.
-        let numID = idBoton.replace(/[^0-9]/ig,"");
+        let numID = idBoton.replace(/[^0-9]/ig, "");
         //Paso el array productos y el NUMERO en el ID del botón, para buscar el objeto del array que tenga el mismo ID que el que paso.
         agregar(numID);
     }

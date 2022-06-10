@@ -122,25 +122,20 @@
 
 .carrito {
   min-height: 100vh;
-  margin-top: 20vh;
+  margin-top: 10vh;
   font-family: "Roboto Flex", sans-serif;
 }
-.carrito__contCarrito {
-  min-height: 70vh;
-  width: 100%;
+.carrito__tarjeta {
+  background-color: #ffffff;
+  border-radius: 20px;
 }
-.carrito__contCarrito__h5 {
-  font-size: 3rem;
+.carrito__h5 {
+  font-size: 1.7rem;
   font-weight: 400;
 }
-.carrito__contCarrito__precio {
+.carrito__precio {
   font-size: 1.8rem;
   font-weight: 300;
-}
-.carrito__contCarrito__span {
-  font-size: 1.7rem;
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */

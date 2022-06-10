@@ -64,30 +64,51 @@
         </div>
     </nav>
 
-    <section class="container carrito">
-        <div id="divCarrito"
-            class="carrito__contCarrito bg-light shadow-sm rounded-4 border border-opacity-10 border-dark d-flex justify-content-center align-items-center row">
-            <div id="prodCarrito" class="carrito__contCarrito card mb-3 col-11">
-                <div class="d-flex flex-row">
-                    <div class="col-md-4">
-                        <img src="../img/zapatilla2.webp" class="img-fluid rounded-start" alt="...">
+    <section class="bg-light">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 1440 185"><path fill="#212529" fill-opacity="1" d="M0,160L30,160C60,160,120,160,180,176C240,192,300,224,360,229.3C420,235,480,213,540,208C600,203,660,213,720,192C780,171,840,117,900,122.7C960,128,1020,192,1080,218.7C1140,245,1200,235,1260,213.3C1320,192,1380,160,1410,144L1440,128L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
+        <div id="divCarrito" class="container carrito bg-light p-0">
+            <div class="row justify-content-center gap-5">
+                <div class="carrito__tarjeta col-12 d-flex flex-row justify-content-between align-items-center p-4 shadow">
+                    <div class="col-2">
+                        <img src="../img/zapatilla2.webp" class="img-fluid rounded-start" alt="" style="width:12vw">
                     </div>
-                    <div class="col-md-5">
-                        <div class="card-body">
-                            <h5 class="carrito__contCarrito__h5 card-title">HOLA HOLA</h5>
-                            <p class="carrito__contCarrito__precio card-text">$2000</p>                            
-                        </div>
+                    <div class="col-5 d-flex flex-row justify-content-center">
+                        <h5 class="carrito__h5 card-title">Nike Revolution 6</h5>                
                     </div>
-                    <div class="col-md-2 d-flex flex-column justify-content-center gap-3">                        
+                    <div class="col-2 text-dark">
+                        <span class="carrito__precio card-text">$25000</span>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center align-content-center col-2">
                         <button class="btn btn-outline-danger mx-3">+</button>
-                        <button class="btn btn-outline-danger mx-3">-</button>            
+                        <span class="border border-1 rounded border-danger text-center py-1 px-5 d-flex flex-column justify-content-center"><strong class="text-danger">1</strong></span>
+                        <button class="btn btn-outline-danger mx-3">-</button>        
                     </div>
-                    <div class="col-md-1 d-flex flex-row justify-content-center align-items-center">
+                    <div class="col-1 d-flex flex-row justify-content-center">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>
+                <div class="carrito__tarjeta col-12 d-flex flex-row justify-content-between align-items-center p-4 shadow">
+                    <div class="col-2">
+                        <img src="../img/zapatilla1.webp" class="img-fluid rounded-start" alt="" style="width:12vw">
+                    </div>
+                    <div class="col-5 d-flex flex-row justify-content-center">
+                        <h5 class="carrito__h5 card-title">Nike Air Max</h5>                
+                    </div>
+                    <div class="col-2 text-dark">
+                        <span class="carrito__precio card-text">$18500</span>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center align-content-center col-2">
+                        <button class="btn btn-outline-danger mx-3">+</button>
+                        <span class="border border-1 rounded border-danger text-center py-1 px-5 d-flex flex-column justify-content-center"><strong class="text-danger">3</strong></span>
+                        <button class="btn btn-outline-danger mx-3">-</button>        
+                    </div>
+                    <div class="col-1 d-flex flex-row justify-content-center">
                         <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
             </div>
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240"><path fill="#212529" fill-opacity="1" d="M0,160L30,160C60,160,120,160,180,176C240,192,300,224,360,229.3C420,235,480,213,540,208C600,203,660,213,720,192C780,171,840,117,900,122.7C960,128,1020,192,1080,218.7C1140,245,1200,235,1260,213.3C1320,192,1380,160,1410,144L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
     </section>
 
     <!-- Pie de página -->

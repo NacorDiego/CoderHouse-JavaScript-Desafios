@@ -10,12 +10,33 @@ let buscador = document.querySelector("#buscador");
 let formularioC = document.querySelector('#formularioContacto');
 
 //Muestra los productos de las bd.json en el html en formato de cards.
-let productos
+// let productos;
+
+let respondio = false;
 
 fetch('../json/bd.json')
 .then(respuesta => respuesta.json())
 .then(productos => {
-    productos.forEach(producto => {
+    // productos.forEach(producto => {
+    //     let {id,marca,modelo,precio,stock} = producto;
+    //     contModelos.innerHTML += `
+    //     <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
+    //         <img src="./img/zapatilla${id}.webp" class="modelos__producto__img mt-5 card-img-top" alt="Imagen de zapatilla ${id}">
+    //         <div class="card-body">
+    //             <p class="modelos__producto__precio mt-5 card-text">$${precio}</p>
+    //             <h5 class="card-title">${marca} ${modelo}</h5>
+    //             <p class="card-text">${stock} unidades</p>
+    //             <button id="botonProducto${id}" class="agregar btn btn-danger modelos__producto__boton">Agregar al carrito</button>
+    //         </div>
+    //     </div>
+    // `
+    // })
+    mostrarProductos(productos);
+})
+
+function mostrarProductos (array) {
+    contModelos.innerHTML = ``
+    array.forEach(producto => {
         let {id,marca,modelo,precio,stock} = producto;
         contModelos.innerHTML += `
         <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
@@ -29,26 +50,7 @@ fetch('../json/bd.json')
         </div>
     `
     })
-})
-
-// //Muestra los elementos del carrito en una tabla en la sección elegida.
-// function mostrarCarrito() {
-//     let carrito = capturarStorage();
-//     //Vacio la sección.
-//     contenedorTabla.innerHTML = "";
-//     carrito.forEach(producto => {
-//         let { marca, modelo, precio, cantEnCarrito } = producto;
-//         contenedorTabla.innerHTML += `.
-//         <tr>
-//         <th scope="row">${cantEnCarrito}</th>
-//         <td>${marca}</td>
-//         <td>${modelo}</td>
-//         <td>$${precio}</td>
-//         <td><button class="btn btn-danger">x</button></td>
-//         </tr>       
-//         `
-//     });
-// }
+}
 
 //Muestra los elementos del carrito en una tabla en la sección elegida.
 function mostrarCarrito() {
@@ -164,8 +166,9 @@ function filtrar(array, dato) {
 
 //Busca un dato en los elementos del array que se pasa como param.
 function buscar(array, dato) {
+    let array2 = array;
     //En el array se aplica filter(como elemento devolveme el elem en el que coincida el dato enviado en el atributo "modelo" del elem del array).
-    let resultado = array.filter(e => e.modelo.toLowerCase().match(dato.toLowerCase()));
+    let resultado = array2.filter(e => e.modelo.toLowerCase().match(dato.toLowerCase()));
     return resultado;
 }
 
