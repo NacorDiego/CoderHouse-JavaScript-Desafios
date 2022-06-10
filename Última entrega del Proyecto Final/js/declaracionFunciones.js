@@ -14,26 +14,13 @@ let formularioC = document.querySelector('#formularioContacto');
 
 let respondio = false;
 
-fetch('../json/bd.json')
-.then(respuesta => respuesta.json())
-.then(productos => {
-    // productos.forEach(producto => {
-    //     let {id,marca,modelo,precio,stock} = producto;
-    //     contModelos.innerHTML += `
-    //     <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
-    //         <img src="./img/zapatilla${id}.webp" class="modelos__producto__img mt-5 card-img-top" alt="Imagen de zapatilla ${id}">
-    //         <div class="card-body">
-    //             <p class="modelos__producto__precio mt-5 card-text">$${precio}</p>
-    //             <h5 class="card-title">${marca} ${modelo}</h5>
-    //             <p class="card-text">${stock} unidades</p>
-    //             <button id="botonProducto${id}" class="agregar btn btn-danger modelos__producto__boton">Agregar al carrito</button>
-    //         </div>
-    //     </div>
-    // `
-    // })
-    mostrarProductos(productos);
-})
+// fetch('../json/bd.json')
+// .then(respuesta => respuesta.json())
+// .then(productos => {
+//     mostrarProductos(productos);
+// })
 
+//Crea y muestra las cards en el contModelos
 function mostrarProductos (array) {
     contModelos.innerHTML = ``
     array.forEach(producto => {

@@ -1,12 +1,28 @@
 console.log("index.js");
 
+//Mostrar productos en la sección catálogo
+fetch('../json/bd.json')
+.then(respuesta => respuesta.json())
+.then(productos => {
+    mostrarProductos(productos);
+})
+
 //Muestra cantidad de elementos en el carrito del storage.
 cantidadCarrito();
 
 //Escuchador de eventos de tipo "change" que retorna el elemento.
 filtroMarca.addEventListener("change", (elemento) => {
     //Si el valor del elem al que se hizo targe es distinto de " (vacio) " ENTONCES(V) ejecuta función mostrar productos(con el array que retorna la función filtrar(productos, el valor del elemento al que se hizo target)) SINO(F) ejecuta la función mostrarProductos(productos). 
-    elemento.target.value != " " ? mostrarProductos(filtrar(productos, elemento.target.value)) : mostrarProductos(productos);
+    // elemento.target.value != " " ? mostrarProductos(filtrar(productos, elemento.target.value)) : mostrarProductos(productos);
+    fetch('../json/bd.json')
+        .then(respuesta => respuesta.json())
+        .then(productos => {
+            if (elemento.target.value != " ") { 
+                mostrarProductos(filtrar(productos, elemento.target.value));
+            } else {
+                mostrarProductos(productos);
+            }
+        })
 });
 
 //Escuchador de eventos de tipo "input" en #buscador.
