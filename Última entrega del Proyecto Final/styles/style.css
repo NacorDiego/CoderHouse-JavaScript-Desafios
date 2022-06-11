@@ -126,8 +126,8 @@
   font-family: "Roboto Flex", sans-serif;
 }
 .carrito__tarjeta {
-  background-color: #ffffff;
   border-radius: 20px;
+  background-color: #ffffff;
 }
 .carrito__h5 {
   font-size: 1.7rem;
