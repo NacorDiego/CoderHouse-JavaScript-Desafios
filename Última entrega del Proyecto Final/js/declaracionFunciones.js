@@ -3,22 +3,12 @@ console.log("declaracionFunciones.js")
 //Capturo los elementos del DOM que se usaran de manera global.
 let contModelos = document.querySelector('#contModelos');
 let cantCarrito = document.querySelector('#cantCarrito');
-// let contenedorTabla = document.querySelector('#tablaCarrito');
 let contArticulos = document.querySelector('#contArticulos');
 let filtroMarca = document.querySelector('#filtrar');
 let buscador = document.querySelector("#buscador");
 let formularioC = document.querySelector('#formularioContacto');
-
-//Muestra los productos de las bd.json en el html en formato de cards.
-// let productos;
-
-let respondio = false;
-
-// fetch('../json/bd.json')
-// .then(respuesta => respuesta.json())
-// .then(productos => {
-//     mostrarProductos(productos);
-// })
+let divCarrito = document.querySelector('#divProductosCarrito');
+let divTotal = document.querySelector('#divTotalCarrito');
 
 //Crea y muestra las cards en el contModelos
 function mostrarProductos (array) {
@@ -39,31 +29,88 @@ function mostrarProductos (array) {
     })
 }
 
+// //Muestra los elementos del carrito en una tabla en la sección elegida.
+// function mostrarCarrito() {
+//     let carrito = capturarStorage();
+//     //Vacio la sección.
+//     divCarrito.innerHTML = "";
+//     carrito.forEach(producto => {
+//         let { id, marca, modelo, precio, cantEnCarrito } = producto;
+//         contArticulos.innerHTML += `
+//             <div id="prodCarrito${id}" class="card mb-3" style="max-width: 540px;">
+//                 <div class="row g-0">
+//                     <div class="col-md-4">
+//                         <img src="./img/zapatilla${id}.webp" class="img-fluid rounded-start" alt="...">
+//                     </div>
+//                     <div class="col-md-8">
+//                         <div class="card-body">
+//                             <h5 class="card-title">${marca} ${modelo}</h5>
+//                             <p class="card-text">$${precio}</p>
+//                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>              
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         `
+//     });
+// }
+
 //Muestra los elementos del carrito en una tabla en la sección elegida.
+
 function mostrarCarrito() {
     let carrito = capturarStorage();
-    //Vacio la sección.
-    divCarrito.innerHTML = "";
-    carrito.forEach(producto => {
-        let { id, marca, modelo, precio, cantEnCarrito } = producto;
-        contArticulos.innerHTML += `
-            <div id="prodCarrito${id}" class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="./img/zapatilla${id}.webp" class="img-fluid rounded-start" alt="...">
+    if (carrito.length == 0) {
+        divCarrito.innerHTML = `
+            <h1>No hay productos en el carrito.</h1>
+            <button class="btn btn-danger">Ver catálogo</button>
+        `
+    } else {
+        //Vacio la sección.
+        divCarrito.innerHTML = "";
+        carrito.forEach(producto => {
+            let { id, marca, modelo, precio, cantEnCarrito } = producto;
+            divCarrito.innerHTML += `
+                <div id="prodCarrito${id}" class="carrito__tarjeta col-12 d-flex flex-row justify-content-between align-items-center p-4 shadow">
+                    <div class="col-2">
+                        <img src="../img/zapatilla${id}.webp" class="img-fluid rounded-start" alt="Imagen de zapatilla ${id}" style="width:12vw">
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">${marca} ${modelo}</h5>
-                            <p class="card-text">$${precio}</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>              
-                        </div>
+                    <div class="col-5 d-flex flex-row justify-content-center">
+                        <h5 class="carrito__h5 card-title">${marca} ${modelo}</h5>                
+                    </div>
+                    <div class="col-2 text-dark">
+                        <!-- Muestra el resultado de la multiplicación de ambas variables -->
+                        <span class="carrito__precio card-text">$${new Intl.NumberFormat("de-DE").format(precio * cantEnCarrito)}</span>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center align-content-center col-2">
+                        <button class="btn btn-outline-danger mx-3">+</button>
+                        <span class="border border-1 rounded border-danger text-center py-1 px-5 d-flex flex-column justify-content-center"><strong class="text-danger">${cantEnCarrito}</strong></span>
+                        <button class="btn btn-outline-danger mx-3">-</button>        
+                    </div>
+                    <div class="col-1 d-flex flex-row justify-content-center">
+                        <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
+            `
+        });
+    }
+}
+
+function mostrarTotalCarrito() {
+    let carrito = capturarStorage();
+    console.log(carrito.length);
+    if (carrito.length != 0) {
+        let acum = 0;
+        carrito.forEach(producto => {
+            acum += (producto.precio * producto.cantEnCarrito);
+        });
+        divTotal.innerHTML += `
+            <div class="col-offset-6 col-6 carrito__tarjeta d-flex flex-row justify-content-center align-items-center p-4 shadow">
+                <h1 class="mb-0">El total es de: $${acum}</h1>
             </div>
         `
-    });
+    }   
 }
+    
 
 //Coloca el numero de elementos dentro del carrito, en el nav.
 function cantidadCarrito() {
