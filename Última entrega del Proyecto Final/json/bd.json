@@ -5,7 +5,7 @@
         "modelo": "Court Borough",
         "precio": 8500,
         "stock": 10,
-        "sexo": "masculino",
+        "sexo": "Masculino",
         "cantEnCarrito": 0
     },
     {
@@ -14,7 +14,7 @@
         "modelo": "Air Max",
         "precio": 17000,
         "stock": 5,
-        "sexo": "masculino",
+        "sexo": "Masculino",
         "cantEnCarrito": 0
     },
     {
@@ -23,7 +23,7 @@
         "modelo": "Revolution 6",
         "precio": 15000,
         "stock": 7,
-        "sexo": "femenino",
+        "sexo": "Femenino",
         "cantEnCarrito": 0
     },
     {
@@ -32,7 +32,7 @@
         "modelo": "Grand Court",
         "precio": 10000,
         "stock": 9,
-        "sexo": "masculino",
+        "sexo": "Masculino",
         "cantEnCarrito": 0
     },
     {
@@ -41,7 +41,7 @@
         "modelo": "Galaxy 5",
         "precio": 12000,
         "stock": 7,
-        "sexo": "femenino",
+        "sexo": "Femenino",
         "cantEnCarrito": 0
     },
     {
@@ -50,7 +50,7 @@
         "modelo": "Coreracer",
         "precio": 10500,
         "stock": 10,
-        "sexo": "masculino",
+        "sexo": "Masculino",
         "cantEnCarrito": 0
     },
     {
@@ -59,7 +59,7 @@
         "modelo": "X-Ray 2",
         "precio": 16000,
         "stock": 5,
-        "sexo": "masculino",
+        "sexo": "Masculino",
         "cantEnCarrito": 0
     },
     {
@@ -68,7 +68,7 @@
         "modelo": "Caven",
         "precio": 12000,
         "stock": 10,
-        "sexo": "masculino",
+        "sexo": "Masculino",
         "cantEnCarrito": 0
     },
     {
@@ -77,7 +77,7 @@
         "modelo": "Disperse XT",
         "precio": 13000,
         "stock": 8,
-        "sexo": "masculino",
+        "sexo": "Femenino",
         "cantEnCarrito": 0
     }
 ]

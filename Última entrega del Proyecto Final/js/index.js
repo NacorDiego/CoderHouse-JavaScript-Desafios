@@ -25,6 +25,21 @@ filtroMarca.addEventListener("change", (elemento) => {
         })
 });
 
+//Escuchador de eventos de tipo "change" que retorna el elemento.
+filtroGenero.addEventListener("change", (elemento) => {
+    //Si el valor del elem al que se hizo targe es distinto de " (vacio) " ENTONCES(V) ejecuta función mostrar productos(con el array que retorna la función filtrar(productos, el valor del elemento al que se hizo target)) SINO(F) ejecuta la función mostrarProductos(productos). 
+    // elemento.target.value != " " ? mostrarProductos(filtrar(productos, elemento.target.value)) : mostrarProductos(productos);
+    fetch('../json/bd.json')
+        .then(respuesta => respuesta.json())
+        .then(productos => {
+            if (elemento.target.value != " ") { 
+                mostrarProductos(filtrarGenero(productos, elemento.target.value));
+            } else {
+                mostrarProductos(productos);
+            }
+        })
+});
+
 //Escuchador de eventos de tipo "input" en #buscador.
 buscador.addEventListener("input", (elemento) => {
     //Ejecuta la función "mostrarProductos" con lo retornado de la función buscar(productos,valor del elemento al que se hizo target).
