@@ -59,6 +59,7 @@ function mostrarProductos (array) {
 //Muestra los elementos del carrito en una tabla en la sección elegida.
 
 function mostrarCarrito() {
+    console.log('Ejecuto mostrarCarrito');
     let carrito = capturarStorage();
     if (carrito.length == 0) {
         divCarrito.innerHTML = `
@@ -68,10 +69,10 @@ function mostrarCarrito() {
     } else {
         //Vacio la sección.
         divCarrito.innerHTML = "";
-        carrito.forEach(producto => {
+        carrito.forEach((producto, indice) => {
             let { id, marca, modelo, precio, cantEnCarrito } = producto;
             divCarrito.innerHTML += `
-                <div id="prodCarrito${id}" class="carrito__tarjeta col-12 d-flex flex-row justify-content-between align-items-center p-4 shadow">
+                <div id="prodCarrito${indice}" class="carrito__tarjeta col-12 d-flex flex-row justify-content-between align-items-center p-4 shadow">
                     <div class="col-2">
                         <img src="../img/zapatilla${id}.webp" class="img-fluid rounded-start" alt="Imagen de zapatilla ${id}" style="width:12vw">
                     </div>
@@ -83,12 +84,12 @@ function mostrarCarrito() {
                         <span class="carrito__precio card-text">$${new Intl.NumberFormat("de-DE").format(precio * cantEnCarrito)}</span>
                     </div>
                     <div class="d-flex flex-row justify-content-center align-content-center col-2">
-                        <button class="btn btn-outline-danger mx-3">+</button>
+                        <button id="aumentar${id}" class="aumentar btn btn-outline-danger mx-3">+</button>
                         <span class="border border-1 rounded border-danger text-center py-1 px-5 d-flex flex-column justify-content-center"><strong class="text-danger">${cantEnCarrito}</strong></span>
-                        <button class="btn btn-outline-danger mx-3">-</button>        
+                        <button id="disminuir${id}" class="disminuir btn btn-outline-danger mx-3">-</button>        
                     </div>
                     <div class="col-1 d-flex flex-row justify-content-center">
-                        <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <button id="eliminar${id}" class="eliminar btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
             `
@@ -191,6 +192,17 @@ function isInCart(id) {
     let carrito = capturarStorage();
     //Devuelve true o false si se cumple la condición. En este caso si hay un objeto con el id igual al id que le paso como param.
     return carrito.some(e => e.id == id);
+}
+
+function eliminarDelCarrito (id) {
+    console.log('Ejecuta la función eliminar');
+    console.log('El id que me llega es: ' + id);
+    let carrito = capturarStorage();
+    document.querySelector(`#prodCarrito${id}`).remove();
+    carrito.splice(id, 1);
+    console.log(carrito);
+    guardarStorage(carrito);
+    mostrarCarrito();
 }
 
 //Filtra elementos del array que coincidan con la condición dato.
