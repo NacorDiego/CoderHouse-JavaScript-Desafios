@@ -18,7 +18,7 @@ filtroMarca.addEventListener("change", (elemento) => {
         .then(respuesta => respuesta.json())
         .then(productos => {
             if (elemento.target.value != " ") { 
-                mostrarProductos(filtrar(productos, elemento.target.value));
+                mostrarProductos(filtrarMarca(productos, elemento.target.value));
             } else {
                 mostrarProductos(productos);
             }

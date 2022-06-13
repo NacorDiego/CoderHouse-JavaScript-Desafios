@@ -4,7 +4,7 @@ console.log("declaracionFunciones.js")
 let contModelos = document.querySelector('#contModelos');
 let cantCarrito = document.querySelector('#cantCarrito');
 let contArticulos = document.querySelector('#contArticulos');
-let filtroMarca = document.querySelector('#filtrar');
+let filtroMarca = document.querySelector('#filtroMarca');
 let buscador = document.querySelector("#buscador");
 let formularioC = document.querySelector('#formularioContacto');
 let divCarrito = document.querySelector('#divProductosCarrito');
@@ -193,7 +193,7 @@ function isInCart(id) {
 }
 
 //Filtra elementos del array que coincidan con la condición dato.
-function filtrar(array, dato) {
+function filtrarMarca(array, dato) {
     //Retorna un nuevo array con los elementos que cumplan en su atributo "marca" con el dato enviado como param.
     return array.filter(e => e.marca == dato);
 }
