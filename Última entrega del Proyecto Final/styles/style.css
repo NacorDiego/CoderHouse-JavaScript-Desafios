@@ -129,6 +129,14 @@
   border-radius: 20px;
   background-color: #ffffff;
 }
+.carrito__tarjeta__subtotal {
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+.carrito__tarjeta__total {
+  font-size: 2.2rem;
+  font-weight: 400;
+}
 .carrito__h5 {
   font-size: 1.7rem;
   font-weight: 400;

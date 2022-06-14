@@ -68,7 +68,7 @@ function mostrarProductosCarrito() {
             `
         });
     }
-    escucharEventosCarrito();
+    capturarEventosCarrito();
 }
 
 function mostrarTotalCarrito() {
@@ -81,8 +81,15 @@ function mostrarTotalCarrito() {
             acum += (producto.precio * producto.cantEnCarrito);
         });
         divTotal.innerHTML += `
-            <div id="totalCarrito" class="col-offset-6 col-6 carrito__tarjeta d-flex flex-row justify-content-center align-items-center p-4 shadow">
-                <h1 class="mb-0">El total es de: $${acum}</h1>
+            <div id="totalCarrito" class="col-4 carrito__tarjeta d-flex flex-row justify-content-between align-items-center p-4 shadow">
+                <div class="row justify-content-center">
+                    <span class="carrito__tarjeta__subtotal mb-0">Subtotal</span>
+                    <span class="carrito__tarjeta__total mb-0">Total</span>
+                </div>
+                <div class="row justify-content-center align-items-end">
+                    <span class="carrito__tarjeta__subtotal mb-0">$${acum}</span>
+                    <span class="carrito__tarjeta__total mb-0">$${acum}</span>
+                </div>
             </div>
         `
     }
@@ -179,7 +186,7 @@ function isInCart(id) {
     //Devuelve true o false si se cumple la condición. En este caso si hay un objeto con el id igual al id que le paso como param.
     return carrito.some(e => e.id == id);
 }
-function escucharEventosCarrito() {
+function capturarEventosCarrito() {
     let carrito = capturarStorage();
     carrito.forEach((producto, indice) => {
         //Eliminar del carrito.
@@ -196,7 +203,6 @@ function escucharEventosCarrito() {
 
         //Sumar cantidad en carrito
         document.querySelector(`#aumentar${indice}`).addEventListener('click', () => {
-            console.log('Entro en AUMENTAR');
             incrementarCantidad(producto.id);
             mostrarProductosCarrito();
             cantidadCarrito();
@@ -206,7 +212,6 @@ function escucharEventosCarrito() {
 
         //Restar cantidad en carrito
         document.querySelector(`#disminuir${indice}`).addEventListener('click', () => {
-            console.log('Entro en AUMENTAR');
             disminuirCantidad(producto.id);
             mostrarProductosCarrito();
             cantidadCarrito();
