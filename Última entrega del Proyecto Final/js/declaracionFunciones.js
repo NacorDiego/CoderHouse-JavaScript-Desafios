@@ -12,10 +12,10 @@ let divCarrito = document.querySelector('#divProductosCarrito');
 let divTotal = document.querySelector('#divTotalCarrito');
 
 //Crea y muestra las cards en el contModelos
-function mostrarProductos (array) {
+function mostrarProductos(array) {
     contModelos.innerHTML = ``
     array.forEach(producto => {
-        let {id,marca,modelo,precio,stock} = producto;
+        let { id, marca, modelo, precio, stock } = producto;
         contModelos.innerHTML += `
         <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
             <img src="./img/zapatilla${id}.webp" class="modelos__producto__img mt-5 card-img-top" alt="Imagen de zapatilla ${id}">
@@ -68,7 +68,7 @@ function mostrarProductosCarrito() {
             `
         });
     }
-    eliminarDelCarrito();
+    escucharEventosCarrito();
 }
 
 function mostrarTotalCarrito() {
@@ -85,9 +85,9 @@ function mostrarTotalCarrito() {
                 <h1 class="mb-0">El total es de: $${acum}</h1>
             </div>
         `
-    }   
+    }
 }
-    
+
 
 //Coloca el numero de elementos dentro del carrito, en el nav.
 function cantidadCarrito() {
@@ -120,39 +120,39 @@ function agregar(idParam) {
     let carrito = capturarStorage();
 
     fetch('../json/bd.json')
-    .then(respuesta => respuesta.json())
-    .then(productos => {
-        //Busca en el array el producto que coincide con el idParam.
-        let productoEncontrado = productos.find(e => e.id == idParam);
-        //Creo alerta con TOASTIFY cuando se agrega un producto al carrito.
-        Toastify({
-            text: `¡${productoEncontrado.marca} ${productoEncontrado.modelo} agregadas al carrito!`,
-            duration: 3000,
-            destination: "./pages/carrito.html",
-            newWindow: true,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-                background: "#28B463",
-            },
-            onClick: function () { } // Callback after click
-        }).showToast();
-    
-        //Controla si el artículo está ya en el carrito o no mediante condicional.
-        if (isInCart(idParam)) {
-            incrementarCantidad(idParam);
-        } else {
-            //Devuelve el objeto del array que cumple con la condición, en este caso que el id coincida, y luego lo guarda en la var.
-            productoEncontrado.cantEnCarrito = 1;
-            carrito.push(productoEncontrado);
-            guardarStorage(carrito);
-        }
-        
-        //Llamo acá a esta función debido a que la promesa Fetch es asincrónica, y necesito que se ejecute luego de que resuelva la promesa.
-        cantidadCarrito();
-    })
+        .then(respuesta => respuesta.json())
+        .then(productos => {
+            //Busca en el array el producto que coincide con el idParam.
+            let productoEncontrado = productos.find(e => e.id == idParam);
+            //Creo alerta con TOASTIFY cuando se agrega un producto al carrito.
+            Toastify({
+                text: `¡${productoEncontrado.marca} ${productoEncontrado.modelo} agregadas al carrito!`,
+                duration: 3000,
+                destination: "./pages/carrito.html",
+                newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "#28B463",
+                },
+                onClick: function () { } // Callback after click
+            }).showToast();
+
+            //Controla si el artículo está ya en el carrito o no mediante condicional.
+            if (isInCart(idParam)) {
+                incrementarCantidad(idParam);
+            } else {
+                //Devuelve el objeto del array que cumple con la condición, en este caso que el id coincida, y luego lo guarda en la var.
+                productoEncontrado.cantEnCarrito = 1;
+                carrito.push(productoEncontrado);
+                guardarStorage(carrito);
+            }
+
+            //Llamo acá a esta función debido a que la promesa Fetch es asincrónica, y necesito que se ejecute luego de que resuelva la promesa.
+            cantidadCarrito();
+        })
 }
 
 //Incrementa la cantidad en la variable cantEnCarrito del objeto correspondiente al id.
@@ -164,19 +164,50 @@ function incrementarCantidad(id) {
     guardarStorage(carrito);
 }
 
+//Disminuye la cantidad en la variable cantEnCarrito del objeto correspondiente al id.
+function disminuirCantidad(id) {
+    let carrito = capturarStorage();
+    const indice = carrito.findIndex(e => e.id == id);
+    if (carrito[indice].cantEnCarrito > 1) {
+        carrito[indice].cantEnCarrito--;
+        guardarStorage(carrito);
+    }
+}
+
 function isInCart(id) {
     let carrito = capturarStorage();
     //Devuelve true o false si se cumple la condición. En este caso si hay un objeto con el id igual al id que le paso como param.
     return carrito.some(e => e.id == id);
 }
-function eliminarDelCarrito (){
+function escucharEventosCarrito() {
     let carrito = capturarStorage();
     carrito.forEach((producto, indice) => {
+        //Eliminar del carrito.
         document.querySelector(`#eliminar${indice}`).addEventListener('click', () => {
             document.querySelector(`#prodCarrito${indice}`).remove();
             carrito.splice(indice, 1);
             localStorage.clear();
             guardarStorage(carrito);
+            mostrarProductosCarrito();
+            cantidadCarrito();
+            document.querySelector('#totalCarrito').remove();
+            mostrarTotalCarrito();
+        })
+
+        //Sumar cantidad en carrito
+        document.querySelector(`#aumentar${indice}`).addEventListener('click', () => {
+            console.log('Entro en AUMENTAR');
+            incrementarCantidad(producto.id);
+            mostrarProductosCarrito();
+            cantidadCarrito();
+            document.querySelector('#totalCarrito').remove();
+            mostrarTotalCarrito();
+        })
+
+        //Restar cantidad en carrito
+        document.querySelector(`#disminuir${indice}`).addEventListener('click', () => {
+            console.log('Entro en AUMENTAR');
+            disminuirCantidad(producto.id);
             mostrarProductosCarrito();
             cantidadCarrito();
             document.querySelector('#totalCarrito').remove();
