@@ -30,36 +30,9 @@ function mostrarProductos (array) {
     })
 }
 
-// //Muestra los elementos del carrito en una tabla en la sección elegida.
-// function mostrarCarrito() {
-//     let carrito = capturarStorage();
-//     //Vacio la sección.
-//     divCarrito.innerHTML = "";
-//     carrito.forEach(producto => {
-//         let { id, marca, modelo, precio, cantEnCarrito } = producto;
-//         contArticulos.innerHTML += `
-//             <div id="prodCarrito${id}" class="card mb-3" style="max-width: 540px;">
-//                 <div class="row g-0">
-//                     <div class="col-md-4">
-//                         <img src="./img/zapatilla${id}.webp" class="img-fluid rounded-start" alt="...">
-//                     </div>
-//                     <div class="col-md-8">
-//                         <div class="card-body">
-//                             <h5 class="card-title">${marca} ${modelo}</h5>
-//                             <p class="card-text">$${precio}</p>
-//                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>              
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         `
-//     });
-// }
-
 //Muestra los elementos del carrito en una tabla en la sección elegida.
-
-function mostrarCarrito() {
-    console.log('Ejecuto mostrarCarrito');
+function mostrarProductosCarrito() {
+    console.log('Entro al mostrarProductos');
     let carrito = capturarStorage();
     if (carrito.length == 0) {
         divCarrito.innerHTML = `
@@ -84,29 +57,31 @@ function mostrarCarrito() {
                         <span class="carrito__precio card-text">$${new Intl.NumberFormat("de-DE").format(precio * cantEnCarrito)}</span>
                     </div>
                     <div class="d-flex flex-row justify-content-center align-content-center col-2">
-                        <button id="aumentar${id}" class="aumentar btn btn-outline-danger mx-3">+</button>
+                        <button id="aumentar${indice}" class="aumentar btn btn-outline-danger mx-3">+</button>
                         <span class="border border-1 rounded border-danger text-center py-1 px-5 d-flex flex-column justify-content-center"><strong class="text-danger">${cantEnCarrito}</strong></span>
-                        <button id="disminuir${id}" class="disminuir btn btn-outline-danger mx-3">-</button>        
+                        <button id="disminuir${indice}" class="disminuir btn btn-outline-danger mx-3">-</button>        
                     </div>
                     <div class="col-1 d-flex flex-row justify-content-center">
-                        <button id="eliminar${id}" class="eliminar btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                        <button id="eliminar${indice}" class="eliminar btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
             `
         });
     }
+    eliminarDelCarrito();
 }
 
 function mostrarTotalCarrito() {
+    console.log('Entro al mostrarTotal');
     let carrito = capturarStorage();
-    console.log(carrito.length);
     if (carrito.length != 0) {
         let acum = 0;
+        divTotal.innerHTML += ' ';
         carrito.forEach(producto => {
             acum += (producto.precio * producto.cantEnCarrito);
         });
         divTotal.innerHTML += `
-            <div class="col-offset-6 col-6 carrito__tarjeta d-flex flex-row justify-content-center align-items-center p-4 shadow">
+            <div id="totalCarrito" class="col-offset-6 col-6 carrito__tarjeta d-flex flex-row justify-content-center align-items-center p-4 shadow">
                 <h1 class="mb-0">El total es de: $${acum}</h1>
             </div>
         `
@@ -116,6 +91,7 @@ function mostrarTotalCarrito() {
 
 //Coloca el numero de elementos dentro del carrito, en el nav.
 function cantidadCarrito() {
+    console.log('Entro al cantidadCarrito');
     //Coloca la cantidad inicial de items en el carrito del localStorage al momento de iniciar la página.
     let carrito = capturarStorage();
     let cantProdEnCarrito = 0;
@@ -193,16 +169,20 @@ function isInCart(id) {
     //Devuelve true o false si se cumple la condición. En este caso si hay un objeto con el id igual al id que le paso como param.
     return carrito.some(e => e.id == id);
 }
-
-function eliminarDelCarrito (id) {
-    console.log('Ejecuta la función eliminar');
-    console.log('El id que me llega es: ' + id);
+function eliminarDelCarrito (){
     let carrito = capturarStorage();
-    document.querySelector(`#prodCarrito${id}`).remove();
-    carrito.splice(id, 1);
-    console.log(carrito);
-    guardarStorage(carrito);
-    mostrarCarrito();
+    carrito.forEach((producto, indice) => {
+        document.querySelector(`#eliminar${indice}`).addEventListener('click', () => {
+            document.querySelector(`#prodCarrito${indice}`).remove();
+            carrito.splice(indice, 1);
+            localStorage.clear();
+            guardarStorage(carrito);
+            mostrarProductosCarrito();
+            cantidadCarrito();
+            document.querySelector('#totalCarrito').remove();
+            mostrarTotalCarrito();
+        })
+    })
 }
 
 //Filtra elementos del array que coincidan con la condición dato.
