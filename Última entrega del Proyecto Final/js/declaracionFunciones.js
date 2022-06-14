@@ -35,6 +35,8 @@ function mostrarProductosCarrito() {
     console.log('Entro al mostrarProductos');
     let carrito = capturarStorage();
     if (carrito.length == 0) {
+        divTotal.innerHTML = ' ';
+        divCarrito.innerHTML = ' ';
         divCarrito.innerHTML = `
             <h1>No hay productos en el carrito.</h1>
             <button class="btn btn-danger">Ver catálogo</button>
@@ -76,19 +78,24 @@ function mostrarTotalCarrito() {
     let carrito = capturarStorage();
     if (carrito.length != 0) {
         let acum = 0;
-        divTotal.innerHTML += ' ';
+        divTotal.innerHTML = ' ';
         carrito.forEach(producto => {
             acum += (producto.precio * producto.cantEnCarrito);
         });
         divTotal.innerHTML += `
+            <div class="col-8 row justify-content-around">
+                <img class="col-3" src="../img/medios-de-pago/logo-visa.svg" alt="Logo de visa">
+                <img class="col-3" src="../img/medios-de-pago/logo-banco-provincia.svg" alt="Logo del banco provincia">
+                <img class="col-3" src="../img/medios-de-pago/logo-MP.svg" alt="Logo de mercado pago">
+            </div>
             <div id="totalCarrito" class="col-4 carrito__tarjeta d-flex flex-row justify-content-between align-items-center p-4 shadow">
                 <div class="row justify-content-center">
-                    <span class="carrito__tarjeta__subtotal mb-0">Subtotal</span>
-                    <span class="carrito__tarjeta__total mb-0">Total</span>
+                    <span class="carrito__tarjeta__subtotal text-start mb-0">Subtotal</span>
+                    <span class="carrito__tarjeta__total text-start mb-0">Total</span>
                 </div>
                 <div class="row justify-content-center align-items-end">
-                    <span class="carrito__tarjeta__subtotal mb-0">$${acum}</span>
-                    <span class="carrito__tarjeta__total mb-0">$${acum}</span>
+                    <span class="carrito__tarjeta__subtotal text-end mb-0">$${acum}</span>
+                    <span class="carrito__tarjeta__total text-end mb-0">$${acum}</span>
                 </div>
             </div>
         `
