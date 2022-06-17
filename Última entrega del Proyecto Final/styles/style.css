@@ -125,9 +125,6 @@
   margin-top: 10vh;
   font-family: "Roboto Flex", sans-serif;
 }
-.carrito__secProductos {
-  padding-top: 10vh;
-}
 .carrito__secProductos__producto {
   border-radius: 20px;
   background-color: #ffffff;

@@ -6,7 +6,7 @@
     margin-top: 10vh;
     font-family: $familia-fuente;
     &__secProductos{
-        padding-top: 10vh;
+        // padding-top: 10vh;
         &__producto {
             @include card(0px);
             &__marcaModelo {
