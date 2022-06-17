@@ -125,6 +125,9 @@
   margin-top: 10vh;
   font-family: "Roboto Flex", sans-serif;
 }
+.carrito__secProductos {
+  padding-top: 10vh;
+}
 .carrito__secProductos__producto {
   border-radius: 20px;
   background-color: #ffffff;
@@ -164,12 +167,17 @@
   padding: 0px;
 }
 .carrito__secTotal__contTotales__subtotal {
+  display: inline;
   font-size: 1.7rem;
   font-weight: 300;
 }
 .carrito__secTotal__contTotales__total {
+  display: inline;
   font-size: 2.2rem;
   font-weight: 400;
+}
+.carrito__secTotal__contTotales__botones {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

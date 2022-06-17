@@ -36,11 +36,16 @@ function mostrarProductosCarrito() {
     let carrito = capturarStorage();
     if (carrito.length == 0) {
         divTotal.innerHTML = ' ';
-        // divCarrito.innerHTML = ' ';
-        // divCarrito.innerHTML = `
-        //     <span >¡No ha agregado productos en su carrito!</span>
-        //     <button class="btn btn-danger">Ver catálogo</button>
-        // `
+        divCarrito.innerHTML = ' ';
+        divCarrito.innerHTML = `
+            <div class="carrito__secProductos__noHayProductos shadow d-flex flex-column align-items-center justify-content-center">
+            <span class="carrito__secProductos__noHayProductos__titulo">¡No has agregado productos en tu carrito!</span>
+                <div class="carrito__secProductos__noHayProductos__pregunta d-flex flex-row justify-content-center gap-4">
+                    <span class="carrito__secProductos__noHayProductos__pregunta__texto">¿Aún no te decidiste?</span>
+                    <button class="carrito__secProductos__noHayProductos__pregunta__boton btn btn-outline-danger px-4">CONTINUAR VIENDO</button>
+                </div>
+            </div>
+        `
     } else {
         //Vacio la sección.
         divCarrito.innerHTML = "";
@@ -88,14 +93,20 @@ function mostrarTotalCarrito() {
                 <img class="col-3" src="../img/medios-de-pago/logo-banco-provincia.svg" alt="Logo del banco provincia">
                 <img class="col-3" src="../img/medios-de-pago/logo-MP.svg" alt="Logo de mercado pago">
             </div>
-            <div id="totalCarrito" class="carrito__secTotal__contTotales col-4 d-flex flex-row justify-content-between align-items-center p-4 shadow">
-                <div class="row justify-content-center">
-                    <span class="carrito__secTotal__contTotales__subtotal text-start mb-0">Subtotal</span>
-                    <span class="carrito__secTotal__contTotales__total text-start mb-0">Total</span>
+            <div id="totalCarrito" class="carrito__secTotal__contTotales col-4 d-flex flex-column justify-content-center align-items-center gap-4 p-4 shadow">
+                <div class="d-flex flex-row">
+                    <div class="row justify-content-center align-items-center ps-4">
+                        <span class="carrito__secTotal__contTotales__subtotal text-start mb-0">Subtotal</span>
+                        <span class="carrito__secTotal__contTotales__total text-start mb-0">Total</span>
+                    </div>
+                    <div class="row justify-content-center align-items-end pe-4">
+                        <span class="carrito__secTotal__contTotales__subtotal text-end mb-0">$${acum}</span>
+                        <span class="carrito__secTotal__contTotales__total text-end mb-0">$${acum}</span>
+                    </div>
                 </div>
-                <div class="row justify-content-center align-items-end">
-                    <span class="carrito__secTotal__contTotales__subtotal text-end mb-0">$${acum}</span>
-                    <span class="carrito__secTotal__contTotales__total text-end mb-0">$${acum}</span>
+                <div class="carrito__secTotal__contTotales__botones d-flex flex-column gap-3">
+                    <button class="btn btn-outline-danger">SEGUIR COMPRANDO</button>
+                    <button class="btn btn-danger">FINALIZAR COMPRA</button>
                 </div>
             </div>
         `
@@ -262,7 +273,7 @@ function capturarForm(event) {
         `¡Te llegará la confirmación a tu correo ${mail}!`,
         'success'
     )
-    
+
     //Resetea el formulario.
     formularioC.reset();
 }
