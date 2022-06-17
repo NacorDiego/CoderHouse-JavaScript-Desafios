@@ -121,29 +121,55 @@
 }
 
 .carrito {
-  min-height: 100vh;
+  min-height: 30vh;
   margin-top: 10vh;
   font-family: "Roboto Flex", sans-serif;
 }
-.carrito__tarjeta {
+.carrito__secProductos__producto {
   border-radius: 20px;
   background-color: #ffffff;
+  padding: 0px;
 }
-.carrito__tarjeta__subtotal {
-  font-size: 1.7rem;
-  font-weight: 300;
-}
-.carrito__tarjeta__total {
-  font-size: 2.2rem;
-  font-weight: 400;
-}
-.carrito__h5 {
+.carrito__secProductos__producto__marcaModelo {
   font-size: 1.7rem;
   font-weight: 400;
 }
-.carrito__precio {
+.carrito__secProductos__producto__precio {
   font-size: 1.8rem;
   font-weight: 300;
+}
+.carrito__secProductos__noHayProductos {
+  border-radius: 20px;
+  background-color: #ffffff;
+  padding: 60px;
+  gap: 30px;
+}
+.carrito__secProductos__noHayProductos__titulo {
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+.carrito__secProductos__noHayProductos__pregunta {
+  width: 100%;
+}
+.carrito__secProductos__noHayProductos__pregunta__texto {
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+.carrito__secProductos__noHayProductos__pregunta__boton {
+  font-size: 1.3rem;
+}
+.carrito__secTotal__contTotales {
+  border-radius: 20px;
+  background-color: #ffffff;
+  padding: 0px;
+}
+.carrito__secTotal__contTotales__subtotal {
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+.carrito__secTotal__contTotales__total {
+  font-size: 2.2rem;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=style.css.map */

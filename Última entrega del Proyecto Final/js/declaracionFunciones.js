@@ -36,27 +36,27 @@ function mostrarProductosCarrito() {
     let carrito = capturarStorage();
     if (carrito.length == 0) {
         divTotal.innerHTML = ' ';
-        divCarrito.innerHTML = ' ';
-        divCarrito.innerHTML = `
-            <h1>No hay productos en el carrito.</h1>
-            <button class="btn btn-danger">Ver catálogo</button>
-        `
+        // divCarrito.innerHTML = ' ';
+        // divCarrito.innerHTML = `
+        //     <span >¡No ha agregado productos en su carrito!</span>
+        //     <button class="btn btn-danger">Ver catálogo</button>
+        // `
     } else {
         //Vacio la sección.
         divCarrito.innerHTML = "";
         carrito.forEach((producto, indice) => {
             let { id, marca, modelo, precio, cantEnCarrito } = producto;
             divCarrito.innerHTML += `
-                <div id="prodCarrito${indice}" class="carrito__tarjeta col-12 d-flex flex-row justify-content-between align-items-center p-4 shadow">
+                <div id="prodCarrito${indice}" class="carrito__secProductos__producto col-12 d-flex flex-row justify-content-between align-items-center p-4 shadow">
                     <div class="col-2">
                         <img src="../img/zapatilla${id}.webp" class="img-fluid rounded-start" alt="Imagen de zapatilla ${id}" style="width:12vw">
                     </div>
                     <div class="col-5 d-flex flex-row justify-content-center">
-                        <h5 class="carrito__h5 card-title">${marca} ${modelo}</h5>
+                        <h5 class="carrito__secProductos__producto__marcaModelo card-title">${marca} ${modelo}</h5>
                     </div>
                     <div class="col-2 text-dark">
                         <!-- Muestra el resultado de la multiplicación de ambas variables -->
-                        <span class="carrito__precio card-text">$${new Intl.NumberFormat("de-DE").format(precio * cantEnCarrito)}</span>
+                        <span class="carrito__secProductos__producto__precio card-text">$${new Intl.NumberFormat("de-DE").format(precio * cantEnCarrito)}</span>
                     </div>
                     <div class="d-flex flex-row justify-content-center align-content-center col-2">
                         <button id="aumentar${indice}" class="aumentar btn btn-outline-danger mx-3">+</button>
@@ -88,14 +88,14 @@ function mostrarTotalCarrito() {
                 <img class="col-3" src="../img/medios-de-pago/logo-banco-provincia.svg" alt="Logo del banco provincia">
                 <img class="col-3" src="../img/medios-de-pago/logo-MP.svg" alt="Logo de mercado pago">
             </div>
-            <div id="totalCarrito" class="col-4 carrito__tarjeta d-flex flex-row justify-content-between align-items-center p-4 shadow">
+            <div id="totalCarrito" class="carrito__secTotal__contTotales col-4 d-flex flex-row justify-content-between align-items-center p-4 shadow">
                 <div class="row justify-content-center">
-                    <span class="carrito__tarjeta__subtotal text-start mb-0">Subtotal</span>
-                    <span class="carrito__tarjeta__total text-start mb-0">Total</span>
+                    <span class="carrito__secTotal__contTotales__subtotal text-start mb-0">Subtotal</span>
+                    <span class="carrito__secTotal__contTotales__total text-start mb-0">Total</span>
                 </div>
                 <div class="row justify-content-center align-items-end">
-                    <span class="carrito__tarjeta__subtotal text-end mb-0">$${acum}</span>
-                    <span class="carrito__tarjeta__total text-end mb-0">$${acum}</span>
+                    <span class="carrito__secTotal__contTotales__subtotal text-end mb-0">$${acum}</span>
+                    <span class="carrito__secTotal__contTotales__total text-end mb-0">$${acum}</span>
                 </div>
             </div>
         `
@@ -262,7 +262,7 @@ function capturarForm(event) {
         `¡Te llegará la confirmación a tu correo ${mail}!`,
         'success'
     )
-
+    
     //Resetea el formulario.
     formularioC.reset();
 }

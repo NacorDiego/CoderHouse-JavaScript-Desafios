@@ -2,30 +2,51 @@
 @import '../parciales_generales/mixins';
 
 .carrito {
-    min-height: 100vh;
+    min-height: 30vh;
     margin-top: 10vh;
     font-family: $familia-fuente;
-    
-    
-    &__tarjeta{
-        @include card();
-
-
-        &__subtotal {
-            font-size: 1.7rem;
-            font-weight: 300;
+    &__secProductos{
+        &__producto {
+            @include card(0px);
+            &__marcaModelo {
+                font-size: 1.7rem;
+                font-weight: 400;
+            }
+            &__precio {
+                font-size: 1.8rem;
+                font-weight: 300;
+            }
         }
-        &__total {
-            font-size: 2.2rem;
-            font-weight: 400;
+        &__noHayProductos {
+            @include card(60px);
+            gap:30px;
+            &__titulo {
+                font-size: 2.5rem;
+                font-weight: 200;
+            }
+            &__pregunta {
+                width: 100%;
+                &__texto {
+                    font-size: 1.8rem;
+                    font-weight: 200;
+                }
+                &__boton {
+                    font-size: 1.3rem;
+                }
+            }
         }
     }
-    &__h5 {
-        font-size: 1.7rem;
-        font-weight: 400;
-    }
-    &__precio {
-        font-size: 1.8rem;
-        font-weight: 300;
+    &__secTotal {
+        &__contTotales {
+            @include card(0px);
+            &__subtotal {
+                font-size: 1.7rem;
+                font-weight: 300;
+            }
+            &__total {
+                font-size: 2.2rem;
+                font-weight: 400;
+            }
+        }
     }
 }

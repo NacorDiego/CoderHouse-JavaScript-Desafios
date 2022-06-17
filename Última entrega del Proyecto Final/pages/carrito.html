@@ -15,7 +15,9 @@
         href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap"
         rel="stylesheet">
     <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- My css -->
     <link rel="stylesheet" href="../styles/style.css">
     <title>Carrito | Optimizando proyecto final</title>
@@ -63,12 +65,28 @@
     </nav>
 
     <section class="bg-light">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 1440 185"><path fill="#212529" fill-opacity="1" d="M0,160L30,160C60,160,120,160,180,176C240,192,300,224,360,229.3C420,235,480,213,540,208C600,203,660,213,720,192C780,171,840,117,900,122.7C960,128,1020,192,1080,218.7C1140,245,1200,235,1260,213.3C1320,192,1380,160,1410,144L1440,128L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 50 1440 185">
+            <path fill="#212529" fill-opacity="1"
+                d="M0,160L30,160C60,160,120,160,180,176C240,192,300,224,360,229.3C420,235,480,213,540,208C600,203,660,213,720,192C780,171,840,117,900,122.7C960,128,1020,192,1080,218.7C1140,245,1200,235,1260,213.3C1320,192,1380,160,1410,144L1440,128L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
+            </path>
+        </svg> -->
         <div class="container carrito bg-light p-0">
-            <div id="divProductosCarrito" class="row justify-content-center gap-5"></div>
-            <div id="divTotalCarrito" class="row justify-content-between mt-5"></div>
+            <div id="divProductosCarrito" class="carrito__secProductos bg-light row justify-content-center gap-5">
+                <div class="carrito__secProductos__noHayProductos shadow d-flex flex-column align-items-center justify-content-center">
+                    <span class="carrito__secProductos__noHayProductos__titulo">¡No has agregado productos en tu carrito!</span>
+                    <div class="carrito__secProductos__noHayProductos__pregunta d-flex flex-row justify-content-center gap-4">
+                        <span class="carrito__secProductos__noHayProductos__pregunta__texto">¿No sabés que comprar?</span>
+                        <button class="carrito__secProductos__noHayProductos__pregunta__boton btn btn-danger">VER CATÁLOGO</button>
+                    </div>
+                </div>
+            </div>
+            <div id="divTotalCarrito" class="carrito__secTotal row justify-content-between mt-5"></div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240"><path fill="#212529" fill-opacity="1" d="M0,160L30,160C60,160,120,160,180,176C240,192,300,224,360,229.3C420,235,480,213,540,208C600,203,660,213,720,192C780,171,840,117,900,122.7C960,128,1020,192,1080,218.7C1140,245,1200,235,1260,213.3C1320,192,1380,160,1410,144L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240">
+            <path fill="#212529" fill-opacity="1"
+                d="M0,160L30,160C60,160,120,160,180,176C240,192,300,224,360,229.3C420,235,480,213,540,208C600,203,660,213,720,192C780,171,840,117,900,122.7C960,128,1020,192,1080,218.7C1140,245,1200,235,1260,213.3C1320,192,1380,160,1410,144L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+            </path>
+        </svg>
     </section>
 
     <!-- Pie de página -->
