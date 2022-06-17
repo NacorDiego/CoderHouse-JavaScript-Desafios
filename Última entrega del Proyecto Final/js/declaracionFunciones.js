@@ -17,7 +17,7 @@ function mostrarProductos(array) {
     array.forEach(producto => {
         let { id, marca, modelo, precio, stock } = producto;
         contModelos.innerHTML += `
-        <div id="producto${id}" class="card modelos__producto col-12 col-md-3 my-5">
+        <div id="producto${id}" class="modelos__producto card col-12 col-md-3 my-5">
             <img src="./img/zapatilla${id}.webp" class="modelos__producto__img mt-5 card-img-top" alt="Imagen de zapatilla ${id}">
             <div class="card-body">
                 <p class="modelos__producto__precio mt-5 card-text">$${precio}</p>
@@ -41,7 +41,7 @@ function mostrarProductosCarrito() {
             <div class="carrito__secProductos__noHayProductos shadow d-flex flex-column align-items-center justify-content-center">
                 <span class="carrito__secProductos__noHayProductos__titulo">¡No has agregado productos en tu carrito!</span>
                 <div class="carrito__secProductos__noHayProductos__pregunta d-flex flex-row justify-content-center gap-4">
-                    <span class="carrito__secProductos__noHayProductos__pregunta__texto">¿Aún no te decidiste?</span>
+                    <span class="carrito__secProductos__noHayProductos__pregunta__texto">¿Aún no te decides?</span>
                     <a href="../index.html#catalogo">
                         <button class="carrito__secProductos__noHayProductos__pregunta__boton btn btn-outline-danger px-4">CONTINUAR VIENDO</button>
                     </a>

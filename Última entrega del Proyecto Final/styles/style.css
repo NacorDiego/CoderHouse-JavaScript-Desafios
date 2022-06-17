@@ -96,6 +96,9 @@
   font-size: 1.8rem;
   font-weight: 300;
 }
+.modelos__producto:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
 
 .contacto {
   min-height: 60vh;
