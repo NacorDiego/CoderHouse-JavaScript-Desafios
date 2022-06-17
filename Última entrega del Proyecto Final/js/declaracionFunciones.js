@@ -39,10 +39,12 @@ function mostrarProductosCarrito() {
         divCarrito.innerHTML = ' ';
         divCarrito.innerHTML = `
             <div class="carrito__secProductos__noHayProductos shadow d-flex flex-column align-items-center justify-content-center">
-            <span class="carrito__secProductos__noHayProductos__titulo">¡No has agregado productos en tu carrito!</span>
+                <span class="carrito__secProductos__noHayProductos__titulo">¡No has agregado productos en tu carrito!</span>
                 <div class="carrito__secProductos__noHayProductos__pregunta d-flex flex-row justify-content-center gap-4">
                     <span class="carrito__secProductos__noHayProductos__pregunta__texto">¿Aún no te decidiste?</span>
-                    <button class="carrito__secProductos__noHayProductos__pregunta__boton btn btn-outline-danger px-4">CONTINUAR VIENDO</button>
+                    <a href="../index.html#catalogo">
+                        <button class="carrito__secProductos__noHayProductos__pregunta__boton btn btn-outline-danger px-4">CONTINUAR VIENDO</button>
+                    </a>
                 </div>
             </div>
         `
@@ -105,7 +107,9 @@ function mostrarTotalCarrito() {
                     </div>
                 </div>
                 <div class="carrito__secTotal__contTotales__botones d-flex flex-column gap-3">
-                    <button class="btn btn-outline-danger">SEGUIR COMPRANDO</button>
+                <a href="../index.html#catalogo">
+                    <button class="carrito__secTotal__contTotales__botones__seguirComprando btn btn-outline-danger">SEGUIR COMPRANDO</button>
+                </a>
                     <button class="btn btn-danger">FINALIZAR COMPRA</button>
                 </div>
             </div>

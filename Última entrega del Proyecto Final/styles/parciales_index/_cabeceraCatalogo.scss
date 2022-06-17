@@ -13,5 +13,18 @@
     }
     &__filtroBusqueda {
         height: 7vh;
+        &__botonBuscar{
+            border-radius: 0;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        &__inputBuscar {
+            border-radius: 0;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        &__inputFiltro {
+            border-radius: 15px;
+        }
     }
 }

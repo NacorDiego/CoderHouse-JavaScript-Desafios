@@ -30,18 +30,18 @@
     <!-- Nav -->
     <nav class="navegacion navbar fixed-top bg-dark bg-opacity-75">
         <div class="container-fluid">
-            <ul class="nav col-md-4 d-flex flex-row justify-content-start">
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="#catalogo">Catálogo</a>
+            <ul class="navegacion__lista nav col-md-4 d-flex flex-row justify-content-start">
+                <li class="navegacion__lista__item nav-item d-flex flex-row justify-content-center">
+                    <a class="navegacion__lista__item__link nav-link text-light" href="#catalogo">Catálogo</a>
                 </li>
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="">Hombre</a>
+                <li class="navegacion__lista__item nav-item d-flex flex-row justify-content-center">
+                    <a class="navegacion__lista__item__link nav-link text-light" href="">Hombre</a>
                 </li>
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="">Mujer</a>
+                <li class="navegacion__lista__item nav-item d-flex flex-row justify-content-center">
+                    <a class="navegacion__lista__item__link nav-link text-light" href="">Mujer</a>
                 </li>
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="#contacto">Contacto</a>
+                <li class="navegacion__lista__item nav-item d-flex flex-row justify-content-center">
+                    <a class="navegacion__lista__item__link nav-link text-light" href="#contacto">Contacto</a>
                 </li>
             </ul>
 
@@ -52,13 +52,13 @@
             </div>
 
             <ul class="nav col-md-4 d-flex flex-row justify-content-end">
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="">
+                <li class="navegacion__lista__itemIconos nav-item">
+                    <a class="navegacion__lista__itemIconos__link nav-link text-light" href="">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="./pages/carrito.html">
+                <li class="navegacion__lista__itemIconos nav-item">
+                    <a class="navegacion__lista__itemIconos__link nav-link text-light" href="./pages/carrito.html">
                         <div id="cantCarrito"></div>
                     </a>
                 </li>
@@ -144,7 +144,7 @@
         </div>
         <div class="cabeceraCatalogo__filtroBusqueda row justify-content-between align-items-center">
             <div class="col-3">
-                <select class="form-select" aria-label="Default select example" id="filtroMarca">
+                <select class="cabeceraCatalogo__filtroBusqueda__inputFiltro form-select" aria-label="Default select example" id="filtroMarca">
                     <!-- <option selected>Filtra por categoria</option> -->
                     <option value=" " selected>Todas las marcas</option>
                     <option value="Nike">Nike</option>
@@ -153,16 +153,16 @@
                 </select>
             </div>
             <div class="col-3">
-                <select class="form-select" aria-label="Default select example" id="filtroGenero">
+                <select class="cabeceraCatalogo__filtroBusqueda__inputFiltro form-select" aria-label="Default select example" id="filtroGenero">
                     <!-- <option selected>Filtra por categoria</option> -->
                     <option value=" " selected>Todos los géneros</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                 </select>
             </div>
-            <div class="col-4 d-flex flex-row justify-content-center gap-3">
-                <label for="buscador" class="btn btn-danger"><i class="fa-solid fa-magnifying-glass"></i></label>
-                <input id="buscador" type="text" class="form-control">
+            <div class="col-4 d-flex flex-row justify-content-center">
+                <label for="buscador" class="cabeceraCatalogo__filtroBusqueda__botonBuscar btn btn-danger"><i class="fa-solid fa-magnifying-glass"></i></label>
+                <input id="buscador" type="text" class="cabeceraCatalogo__filtroBusqueda__inputBuscar form-control">
             </div>
         </div>
     </section>

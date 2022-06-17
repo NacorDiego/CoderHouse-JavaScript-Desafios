@@ -1,10 +1,25 @@
+.navegacion {
+  font-family: "Roboto Flex", sans-serif;
+}
 .navegacion__logo {
   width: 80px;
 }
-.navegacion__link {
-  font-size: 1.35rem;
-  font-family: "Roboto Flex", sans-serif;
-  font-weight: 300;
+.navegacion__lista {
+  height: 5vh;
+}
+.navegacion__lista__item {
+  width: 6vw;
+}
+.navegacion__lista__item__link {
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+.navegacion__lista__item__link:hover {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.navegacion__lista__itemIconos__link {
+  font-size: 1.2rem;
 }
 
 .header {
@@ -113,6 +128,19 @@
 .cabeceraCatalogo__filtroBusqueda {
   height: 7vh;
 }
+.cabeceraCatalogo__filtroBusqueda__botonBuscar {
+  border-radius: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.cabeceraCatalogo__filtroBusqueda__inputBuscar {
+  border-radius: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.cabeceraCatalogo__filtroBusqueda__inputFiltro {
+  border-radius: 15px;
+}
 
 .producto {
   font-family: "Roboto Flex", sans-serif;
@@ -174,6 +202,9 @@
   font-weight: 400;
 }
 .carrito__secTotal__contTotales__botones {
+  width: 100%;
+}
+.carrito__secTotal__contTotales__botones__seguirComprando {
   width: 100%;
 }
 

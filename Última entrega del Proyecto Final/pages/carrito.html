@@ -28,35 +28,35 @@
     <!-- Nav -->
     <nav class="navegacion navbar fixed-top bg-dark bg-opacity-75">
         <div class="container-fluid">
-            <ul class="nav col-md-4 d-flex flex-row justify-content-start">
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="">Catálogo</a>
+            <ul class="navegacion__lista nav col-md-4 d-flex flex-row justify-content-start">
+                <li class="navegacion__lista__item nav-item d-flex flex-row justify-content-center">
+                    <a class="navegacion__lista__item__link nav-link text-light" href="../index.html#catalogo">Catálogo</a>
                 </li>
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="">Hombre</a>
+                <li class="navegacion__lista__item nav-item d-flex flex-row justify-content-center">
+                    <a class="navegacion__lista__item__link nav-link text-light" href="">Hombre</a>
                 </li>
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="">Mujer</a>
+                <li class="navegacion__lista__item nav-item d-flex flex-row justify-content-center">
+                    <a class="navegacion__lista__item__link nav-link text-light" href="">Mujer</a>
                 </li>
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="">Contacto</a>
+                <li class="navegacion__lista__item nav-item d-flex flex-row justify-content-center">
+                    <a class="navegacion__lista__item__link nav-link text-light" href="../index.html#contacto">Contacto</a>
                 </li>
             </ul>
 
             <div class="col-md-4 d-flex flex-row justify-content-center">
-                <a href="../index.html">
+                <a href="#">
                     <img class="navegacion__logo" src="../img/svg/logo.svg" alt="Logo">
                 </a>
             </div>
 
             <ul class="nav col-md-4 d-flex flex-row justify-content-end">
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="">
+                <li class="navegacion__lista__itemIconos nav-item">
+                    <a class="navegacion__lista__itemIconos__link nav-link text-light" href="../index.html#catalogo">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="navegacion__link nav-link text-light" href="#">
+                <li class="navegacion__lista__itemIconos nav-item">
+                    <a class="navegacion__lista__itemIconos__link nav-link text-light" href="#">
                         <div id="cantCarrito"></div>
                     </a>
                 </li>
@@ -71,15 +71,7 @@
             </path>
         </svg>
         <div class="container carrito bg-light p-0">
-            <div id="divProductosCarrito" class="carrito__secProductos bg-light row justify-content-center gap-5">
-                <div class="carrito__secProductos__noHayProductos shadow d-flex flex-column align-items-center justify-content-center">
-                    <span class="carrito__secProductos__noHayProductos__titulo">¡No has agregado productos en tu carrito!</span>
-                    <div class="carrito__secProductos__noHayProductos__pregunta d-flex flex-row justify-content-center gap-4">
-                        <span class="carrito__secProductos__noHayProductos__pregunta__texto">¿No sabés que comprar?</span>
-                        <button class="carrito__secProductos__noHayProductos__pregunta__boton btn btn-danger">VER CATÁLOGO</button>
-                    </div>
-                </div>
-            </div>
+            <div id="divProductosCarrito" class="carrito__secProductos bg-light row justify-content-center gap-5"></div>
             <div id="divTotalCarrito" class="carrito__secTotal row justify-content-between mt-5"></div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 1440 240">
