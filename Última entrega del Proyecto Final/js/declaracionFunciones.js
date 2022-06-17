@@ -52,7 +52,7 @@ function mostrarProductosCarrito() {
                         <img src="../img/zapatilla${id}.webp" class="img-fluid rounded-start" alt="Imagen de zapatilla ${id}" style="width:12vw">
                     </div>
                     <div class="col-5 d-flex flex-row justify-content-center">
-                        <h5 class="carrito__h5 card-title">${marca} ${modelo}</h5>                
+                        <h5 class="carrito__h5 card-title">${marca} ${modelo}</h5>
                     </div>
                     <div class="col-2 text-dark">
                         <!-- Muestra el resultado de la multiplicación de ambas variables -->
@@ -61,7 +61,7 @@ function mostrarProductosCarrito() {
                     <div class="d-flex flex-row justify-content-center align-content-center col-2">
                         <button id="aumentar${indice}" class="aumentar btn btn-outline-danger mx-3">+</button>
                         <span class="border border-1 rounded border-danger text-center py-1 px-5 d-flex flex-column justify-content-center"><strong class="text-danger">${cantEnCarrito}</strong></span>
-                        <button id="disminuir${indice}" class="disminuir btn btn-outline-danger mx-3">-</button>        
+                        <button id="disminuir${indice}" class="disminuir btn btn-outline-danger mx-3">-</button>
                     </div>
                     <div class="col-1 d-flex flex-row justify-content-center">
                         <button id="eliminar${indice}" class="eliminar btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
