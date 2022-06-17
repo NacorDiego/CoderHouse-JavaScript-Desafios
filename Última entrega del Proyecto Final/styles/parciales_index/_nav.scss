@@ -12,9 +12,10 @@
             &__link {
                 font-size: 1.2rem;
                 font-weight: 200;
+                transition: font-size .3s, font-weight .3s;
             }
             &__link:hover {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
                 font-weight: 400;
             }
         }

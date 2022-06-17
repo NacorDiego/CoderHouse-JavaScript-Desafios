@@ -13,9 +13,10 @@
 .navegacion__lista__item__link {
   font-size: 1.2rem;
   font-weight: 200;
+  transition: font-size 0.3s, font-weight 0.3s;
 }
 .navegacion__lista__item__link:hover {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 .navegacion__lista__itemIconos__link {
@@ -68,6 +69,7 @@
 .nuevoModelo {
   min-height: 50vh;
   font-family: "Roboto Flex", sans-serif;
+  overflow: hidden;
 }
 .nuevoModelo__contFemenino {
   background-image: url("../../img/femenino.jpg");
@@ -92,12 +94,16 @@
   gap: 12.5%;
   width: 100%;
 }
+.modelos__producto {
+  transition: transform 0.6s, box-shadow 0.6s;
+}
 .modelos__producto__precio {
   font-size: 1.8rem;
   font-weight: 300;
 }
 .modelos__producto:hover {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
+  transform: scale(118%);
 }
 
 .contacto {
