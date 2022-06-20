@@ -110,10 +110,11 @@ function mostrarTotalCarrito() {
                 <a href="../index.html#catalogo">
                     <button class="carrito__secTotal__contTotales__botones__seguirComprando btn btn-outline-danger">SEGUIR COMPRANDO</button>
                 </a>
-                    <button class="btn btn-danger">FINALIZAR COMPRA</button>
+                    <button id="botonFinalizarCompra" class="btn btn-danger">CONFIRMAR COMPRA</button>
                 </div>
             </div>
         `
+        alertaConfirmarCompra();
     }
 }
 
@@ -240,6 +241,16 @@ function capturarEventosCarrito() {
             document.querySelector('#totalCarrito').remove();
             mostrarTotalCarrito();
         })
+    })
+}
+
+function alertaConfirmarCompra () {
+    document.querySelector('#botonFinalizarCompra').addEventListener('click', () => {
+        Swal.fire(
+            `¡Acabas de confirmar tu compra!`,
+            `¡Completa los datos de tu pago para finalizarla!`,
+            'success'
+        )
     })
 }
 
